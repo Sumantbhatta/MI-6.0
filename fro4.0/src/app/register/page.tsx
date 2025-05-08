@@ -63,22 +63,60 @@ export default function RegisterPage() {
       setError('Passwords do not match');
       return;
     }
+
+    if (formData.password.length < 8) {
+      setError('Password must be at least 8 characters long');
+      return;
+    }
+
+    if (!formData.name.trim()) {
+      setError('Name is required');
+      return;
+    }
+
+    if (!formData.email.trim()) {
+      setError('Email is required');
+      return;
+    }
+
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setError('Please enter a valid email address');
+      return;
+    }
     
     try {
       await register(formData.name, formData.email, formData.password);
-    } catch (err) {
-      setError('Failed to create account. Please try again.');
+      // If we get here, registration was successful and we're being redirected
+      // No need to show any error message
+    } catch (err: any) {
+      // Only show error if it's a critical error
+      if (err.message.includes('auth')) {
+        console.error('Critical registration error:', err);
+        setError(err.message || 'Failed to create account. Please try again.');
+      }
+      // For non-critical errors, just log them
+      console.warn('Non-critical registration error:', err);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-purple-50 to-blue-50 py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-500 via-yellow-100 to-yellow-500 py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <motion.div 
-        className="absolute top-0 right-0 w-full h-32 bg-gradient-to-l from-indigo-600 to-purple-600 rounded-b-[30%] opacity-80 z-0"
+        className="absolute top-0 right-0 w-full h-32 bg-gradient-to-l from-[#ffbd2b] to-[#ffbd2b] rounded-b-[30%] opacity-80 z-0"
         initial={{ x: '100%', opacity: 0 }}
         animate={{ x: 0, opacity: 0.8 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
-      />
+      >
+        <motion.div 
+          className="text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          variants={itemVariants}
+        >
+          <h1 className="text-4xl font-extrabold text-black">Join Our Platform</h1>
+          <p className="text-black/90">Create your account to get started</p>
+        </motion.div>
+      </motion.div>
       
       <motion.div 
         className="w-full max-w-md z-10"
@@ -86,26 +124,18 @@ export default function RegisterPage() {
         initial="hidden"
         animate="visible"
       >
-        <motion.div 
-          className="text-center mb-8"
-          variants={itemVariants}
-        >
-          <h1 className="text-3xl font-extrabold text-gray-900 mb-2">Join Our Platform</h1>
-          <p className="text-gray-600">Create your account to get started</p>
-        </motion.div>
-        
         <motion.div variants={itemVariants}>
-          <Card className="w-full max-w-md border-none shadow-xl bg-white/90 backdrop-blur-sm overflow-hidden">
+          <Card className="w-full max-w-md border-none shadow-xl bg-yellow-200 backdrop-blur-sm overflow-hidden">
             <motion.div
-              className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-purple-600"
+              className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-500 to-yellow-600"
               initial={{ scaleX: 0, originX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ delay: 0.5, duration: 0.8, ease: 'easeOut' }}
             />
             <CardHeader className="space-y-1 pb-2">
-              <CardTitle className="text-2xl font-bold text-center text-gray-800">Sign Up</CardTitle>
+              <CardTitle className="text-2xl font-bold text-center text-black-800">Sign Up</CardTitle>
               <motion.div 
-                className="w-16 h-1 bg-gradient-to-r from-indigo-500 to-purple-600 mx-auto rounded-full"
+                className="w-16 h-1 bg-gradient-to-r from-yellow-500 to-yellow-600 mx-auto rounded-full"
                 initial={{ width: 0 }}
                 animate={{ width: 64 }}
                 transition={{ delay: 0.6, duration: 0.4 }}
@@ -140,7 +170,7 @@ export default function RegisterPage() {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="pl-10 bg-white/60 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 transition-all duration-200"
+                    className="pl-10 bg-white/60 border-gray-300 focus:border-orange-500 focus:ring-orange-500 transition-all duration-200"
                   />
                 </div>
               </motion.div>
@@ -159,7 +189,7 @@ export default function RegisterPage() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="pl-10 bg-white/60 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 transition-all duration-200"
+                    className="pl-10 bg-white/60 border-gray-300 focus:border-orange-500 focus:ring-orange-500 transition-all duration-200"
                   />
                 </div>
               </motion.div>
@@ -177,7 +207,7 @@ export default function RegisterPage() {
                     required
                     value={formData.password}
                     onChange={handleChange}
-                    className="pl-10 bg-white/60 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 transition-all duration-200"
+                    className="pl-10 bg-white/60 border-gray-300 focus:border-orange-500 focus:ring-orange-500 transition-all duration-200"
                   />
                 </div>
                 <p className="text-xs text-gray-500 mt-1">Password must be at least 8 characters long</p>
@@ -196,7 +226,7 @@ export default function RegisterPage() {
                     required
                     value={formData.confirmPassword}
                     onChange={handleChange}
-                    className="pl-10 bg-white/60 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 transition-all duration-200"
+                    className="pl-10 bg-white/60 border-gray-300 focus:border-orange-500 focus:ring-orange-500 transition-all duration-200"
                   />
                 </div>
               </motion.div>
@@ -205,11 +235,11 @@ export default function RegisterPage() {
                 <input
                   type="checkbox"
                   id="terms"
-                  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                  className="h-4 w-4 text-yellow-600 focus:ring-yellow-500 border-gray-300 rounded"
                   required
                 />
                 <Label htmlFor="terms" className="text-sm text-gray-600">
-                  I agree to the <a href="#" className="text-indigo-600 hover:text-indigo-500">Terms of Service</a> and <a href="#" className="text-indigo-600 hover:text-indigo-500">Privacy Policy</a>
+                  I agree to the <a href="#" className="text-yellow-600 hover:text-yellow-500">Terms of Service</a> and <a href="#" className="text-yellow-600 hover:text-yellow-500">Privacy Policy</a>
                 </Label>
               </motion.div>
             </CardContent>
@@ -218,7 +248,7 @@ export default function RegisterPage() {
               <motion.div variants={itemVariants}>
                 <Button 
                   type="submit" 
-                  className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-medium py-2 px-4 rounded-md transition-all duration-200 shadow-md hover:shadow-lg"
+                  className="w-full bg-gradient-to-r from-yellow-600 to-yellow-600 hover:from-yellow-700 hover:to-yellow-700 text-white font-medium py-2 px-4 rounded-md transition-all duration-200 shadow-md hover:shadow-lg"
                   disabled={authLoading}
                 >
                   {authLoading ? (
@@ -234,7 +264,7 @@ export default function RegisterPage() {
               
               <motion.div className="text-center text-sm mt-4" variants={itemVariants}>
                 <span className="text-gray-600">Already have an account?</span>{' '}
-                <Link href="/login" className="text-indigo-600 hover:text-indigo-500 font-medium transition-colors duration-200">
+                <Link href="/login" className="text-yellow-600 hover:text-yellow-500 font-medium transition-colors duration-200">
                   Sign in
                 </Link>
               </motion.div>
@@ -243,20 +273,24 @@ export default function RegisterPage() {
           </Card>
         </motion.div>
         
-        <motion.div 
-          className="text-center mt-8 text-sm text-gray-500"
-          variants={fadeIn}
-        >
-          &copy; {new Date().getFullYear()} Equipment Management System. All rights reserved.
-        </motion.div>
+   
       </motion.div>
       
       <motion.div 
-        className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-t-[30%] opacity-80 z-0"
+        className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-r from-[#ffbd2b] to-[#ffbd2b] rounded-t-[30%] opacity-80 z-0"
         initial={{ x: '-100%', opacity: 0 }}
         animate={{ x: 0, opacity: 0.8 }}
         transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-      />
+      >
+        <motion.div 
+          className="text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          variants={fadeIn}
+        >
+          <p className="text-sm text-black/90">
+            &copy; {new Date().getFullYear()} Equipment Management System. All rights reserved.
+          </p>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }

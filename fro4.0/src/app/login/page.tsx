@@ -65,55 +65,48 @@ export default function LoginPage() {
     setError('');
     
     try {
-      // Check against dummy credentials
-      if (formData.email === validCredentials.email && 
-          formData.password === validCredentials.password) {
-        // Use the login function from AuthContext
-        await login(formData.email, formData.password);
-      } else {
-        setError('Invalid email or password');
-      }
-    } catch (err) {
-      setError('Invalid email or password');
+      await login(formData.email, formData.password);
+    } catch (err: any) {
+      setError(err.message || 'Invalid email or password');
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-500 via-yellow-100 to-blue-500 py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-500 via-yellow-100 to-yellow-500 py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <motion.div 
-        className="absolute top-0 right-0 w-full h-32 bg-gradient-to-l from-blue-600 to-indigo-600 rounded-b-[30%] opacity-80 z-0"
+        className="absolute top-0 right-0 w-full h-32 bg-gradient-to-l from-[#ffbd2b] to-[#ffbd2b] rounded-b-[30%] opacity-80 z-0"
         initial={{ x: '100%', opacity: 0 }}
         animate={{ x: 0, opacity: 0.8 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
-      />
+      >
+        <motion.div 
+          className="text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          variants={itemVariants}
+        >
+          <h1 className="text-4xl font-extrabold text-black">Welcome Back</h1>
+          <p className="text-black/90">Sign in to your account</p>
+        </motion.div>
+      </motion.div>
       
       <motion.div 
-        className="w-full max-w-md z-10"
+        className="w-full max-w-md z-10 relative"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <motion.div 
-          className="text-center mb-12"
-          variants={itemVariants}
-        >
-          <h1 className="text-4xl font-extrabold text-gray-900 ">Welcome Back</h1>
-          <p className="text-black-600">Sign in to your account</p>
-        </motion.div>
-        
         <motion.div variants={itemVariants}>
-          <Card className="w-full max-w-md border-none shadow-xl bg-blue-200 backdrop-blur-sm overflow-hidden mb-20">
+          <Card className="w-full max-w-md border-none shadow-xl bg-yellow-200 backdrop-blur-sm overflow-hidden">
             <motion.div
-              className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-600"
+              className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-500 to-yellow-600"
               initial={{ scaleX: 0, originX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ delay: 0.5, duration: 0.8, ease: 'easeOut' }}
             />
             
             <CardHeader className="space-y-1 pb-2">
-              <CardTitle className="text-2xl font-bold text-center text-black-800 ">Sign In</CardTitle>
+              <CardTitle className="text-2xl font-bold text-center text-black-800">Sign In</CardTitle>
               <motion.div 
-                className="w-16 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full"
+                className="w-16 h-1 bg-gradient-to-r from-yellow-500 to-yellow-600 mx-auto rounded-full"
                 initial={{ width: 0 }}
                 animate={{ width: 64 }}
                 transition={{ delay: 0.6, duration: 0.4 }}
@@ -148,7 +141,7 @@ export default function LoginPage() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="pl-10 bg-white/60 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 transition-all duration-200"
+                      className="pl-10 bg-white/60 border-gray-300 focus:border-orange-500 focus:ring-orange-500 transition-all duration-200"
                     />
                   </div>
                 </motion.div>
@@ -156,7 +149,7 @@ export default function LoginPage() {
                 <motion.div className="space-y-2" variants={itemVariants}>
                   <div className="flex justify-between items-center">
                     <Label htmlFor="password" className="text-gray-700 font-medium">Password</Label>
-                    <Link href="#" className="text-sm text-indigo-600 hover:text-indigo-500 transition-colors duration-200">
+                    <Link href="#" className="text-sm text-yellow-600 hover:text-yellow-500 transition-colors duration-200">
                       Forgot password?
                     </Link>
                   </div>
@@ -171,7 +164,7 @@ export default function LoginPage() {
                       required
                       value={formData.password}
                       onChange={handleChange}
-                      className="pl-10 bg-white/60 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 transition-all duration-200"
+                      className="pl-10 bg-white/60 border-gray-300 focus:border-orange-500 focus:ring-orange-500 transition-all duration-200"
                     />
                   </div>
                 </motion.div>
@@ -180,7 +173,7 @@ export default function LoginPage() {
                   <input
                     type="checkbox"
                     id="remember"
-                    className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                    className="h-4 w-4 text-yellow-600 focus:ring-yellow-500 border-gray-300 rounded"
                   />
                   <Label htmlFor="remember" className="text-sm text-gray-600">
                     Remember me
@@ -192,7 +185,7 @@ export default function LoginPage() {
                 <motion.div variants={itemVariants}>
                   <Button 
                     type="submit" 
-                    className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-2 px-4 rounded-md transition-all duration-200 shadow-md hover:shadow-lg"
+                    className="w-full bg-gradient-to-r from-yellow-600 to-yellow-600 hover:from-yellow-700 hover:to-yellow-700 text-white font-medium py-2 px-4 rounded-md transition-all duration-200 shadow-md hover:shadow-lg"
                     disabled={authLoading}
                   >
                     {authLoading ? (
@@ -206,7 +199,7 @@ export default function LoginPage() {
                 
                 <motion.div className="text-center text-sm mt-4" variants={itemVariants}>
                   <span className="text-gray-600">Don't have an account?</span>{' '}
-                  <Link href="/register" className="text-indigo-600 hover:text-indigo-500 font-medium transition-colors duration-200">
+                  <Link href="/register" className="text-yellow-600 hover:text-yellow-500 font-medium transition-colors duration-200">
                     Sign up
                   </Link>
                 </motion.div>
@@ -215,20 +208,24 @@ export default function LoginPage() {
           </Card>
         </motion.div>
         
-        <motion.div 
-          className="text-center mt-8 text-sm text-black-500"
-          variants={fadeIn}
-        >
-          &copy; {new Date().getFullYear()} Equipment Management System. All rights reserved.
-        </motion.div>
+
       </motion.div>
       
       <motion.div 
-        className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-r from-indigo-600 to-blue-600 rounded-t-[30%] opacity-80 z-0"
+        className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-r from-[#ffbd2b] to-[#ffbd2b] rounded-t-[30%] opacity-80 z-0"
         initial={{ x: '-100%', opacity: 0 }}
         animate={{ x: 0, opacity: 0.8 }}
         transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-      />
+      >
+        <motion.div 
+          className="text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          variants={fadeIn}
+        >
+          <p className="text-sm text-black/90">
+            &copy; {new Date().getFullYear()} Equipment Management System. All rights reserved.
+          </p>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }

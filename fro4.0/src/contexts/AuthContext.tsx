@@ -45,7 +45,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         pathname !== '/login' && 
         pathname !== '/register' &&
         pathname !== '/') {
-      router.push('/login');
+      router.push('/');
     }
   }, [user, loading, pathname, router]);
 
