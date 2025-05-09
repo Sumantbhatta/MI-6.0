@@ -13,12 +13,18 @@ import { motion } from 'framer-motion';
 
 export default function LoginPage() {
   const router = useRouter();
-  const { login, signInWithGoogle } = useAuth();
+  const { login, loading: authLoading } = useAuth();
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   });
   const [error, setError] = useState('');
+  
+  // Dummy credentials
+  const validCredentials = {
+    email: 'admin@example.com',
+    password: 'admin123'
+  };
 
   // Animation variants
   const containerVariants = {
@@ -58,19 +64,8 @@ export default function LoginPage() {
     e.preventDefault();
     setError('');
     
-    if (!formData.email.trim()) {
-      setError('Email is required');
-      return;
-    }
-
-    if (!formData.password.trim()) {
-      setError('Password is required');
-      return;
-    }
-    
     try {
       await login(formData.email, formData.password);
-      // If successful, the AuthContext will handle the redirect
     } catch (err: any) {
       setError(err.message || 'Invalid email or password');
     }
@@ -93,7 +88,7 @@ export default function LoginPage() {
         </motion.div>
       </motion.div>
       
-      <motion.div
+      <motion.div 
         className="w-full max-w-md z-10 relative"
         variants={containerVariants}
         initial="hidden"
@@ -184,33 +179,6 @@ export default function LoginPage() {
                     Remember me
                   </Label>
                 </motion.div>
-
-                <div className="relative">
-                  <div className="absolute inset-0 flex items-center">
-                    <span className="w-full border-t border-gray-300" />
-                  </div>
-                  <div className="relative flex justify-center text-sm">
-                    <span className="px-2 bg-yellow-200 text-gray-500">Or continue with</span>
-                  </div>
-                </div>
-
-                <Button
-                  type="button"
-                  variant="outline"
-                  className="w-full bg-white hover:bg-gray-50 text-black font-medium"
-                  onClick={() => {
-                    setError('');
-                    signInWithGoogle().catch(err => {
-                      console.error('Google sign in error:', err);
-                      setError('Failed to sign in with Google. Please try again.');
-                    });
-                  }}
-                >
-                  <svg className="mr-2 h-4 w-4" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
-                    <path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"></path>
-                  </svg>
-                  Sign in with Google
-                </Button>
               </CardContent>
               
               <CardFooter className="flex flex-col space-y-4 pb-6">
@@ -218,8 +186,14 @@ export default function LoginPage() {
                   <Button 
                     type="submit" 
                     className="w-full bg-gradient-to-r from-yellow-600 to-yellow-600 hover:from-yellow-700 hover:to-yellow-700 text-white font-medium py-2 px-4 rounded-md transition-all duration-200 shadow-md hover:shadow-lg"
+                    disabled={authLoading}
                   >
-                    Sign in
+                    {authLoading ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Signing in...
+                      </>
+                    ) : 'Sign in'}
                   </Button>
                 </motion.div>
                 
@@ -233,9 +207,11 @@ export default function LoginPage() {
             </form>
           </Card>
         </motion.div>
+        
+
       </motion.div>
       
-      <motion.div
+      <motion.div 
         className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-r from-[#ffbd2b] to-[#ffbd2b] rounded-t-[30%] opacity-80 z-0"
         initial={{ x: '-100%', opacity: 0 }}
         animate={{ x: 0, opacity: 0.8 }}

@@ -2,18 +2,17 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/contexts/AuthContext';
-import { Lock, Mail, User, AlertCircle } from 'lucide-react';
+import { Loader2, Lock, Mail, User, AlertCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function RegisterPage() {
-  const { register, signInWithGoogle } = useAuth();
-  const router = useRouter();
+  const { register } = useAuth();
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -59,25 +58,30 @@ export default function RegisterPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    setLoading(true);
     
     // Basic validation
     if (formData.password !== formData.confirmPassword) {
       setError('Passwords do not match');
+      setLoading(false);
       return;
     }
 
     if (formData.password.length < 6) {
       setError('Password must be at least 6 characters long');
+      setLoading(false);
       return;
     }
 
     if (!formData.name.trim()) {
       setError('Name is required');
+      setLoading(false);
       return;
     }
 
     if (!formData.email.trim()) {
       setError('Email is required');
+      setLoading(false);
       return;
     }
 
@@ -85,15 +89,17 @@ export default function RegisterPage() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       setError('Please enter a valid email address');
+      setLoading(false);
       return;
     }
     
     try {
       await register(formData.name, formData.email, formData.password);
-      router.push('/dashboard');
     } catch (err: any) {
       console.error('Registration error:', err);
       setError(err.message || 'Failed to create account. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -238,33 +244,6 @@ export default function RegisterPage() {
                     I agree to the <a href="#" className="text-yellow-600 hover:text-yellow-500">Terms of Service</a> and <a href="#" className="text-yellow-600 hover:text-yellow-500">Privacy Policy</a>
                   </Label>
                 </motion.div>
-
-                <div className="relative">
-                  <div className="absolute inset-0 flex items-center">
-                    <span className="w-full border-t border-gray-300" />
-                  </div>
-                  <div className="relative flex justify-center text-sm">
-                    <span className="px-2 bg-yellow-200 text-gray-500">Or continue with</span>
-                  </div>
-                </div>
-
-                <Button
-                  type="button"
-                  variant="outline"
-                  className="w-full bg-white hover:bg-gray-50 text-black font-medium"
-                  onClick={() => {
-                    setError('');
-                    signInWithGoogle().catch(err => {
-                      console.error('Google sign in error:', err);
-                      setError('Failed to sign in with Google. Please try again.');
-                    });
-                  }}
-                >
-                  <svg className="mr-2 h-4 w-4" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
-                    <path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"></path>
-                  </svg>
-                  Sign in with Google
-                </Button>
               </CardContent>
               
               <CardFooter className="flex flex-col space-y-4 pb-6">
@@ -272,8 +251,14 @@ export default function RegisterPage() {
                   <Button 
                     type="submit" 
                     className="w-full bg-gradient-to-r from-yellow-600 to-yellow-600 hover:from-yellow-700 hover:to-yellow-700 text-white font-medium py-2 px-4 rounded-md transition-all duration-200 shadow-md hover:shadow-lg"
+                    disabled={loading}
                   >
-                    Create account
+                    {loading ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Creating account...
+                      </>
+                    ) : 'Create account'}
                   </Button>
                 </motion.div>
                 
