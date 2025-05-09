@@ -2,16 +2,18 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/contexts/AuthContext';
-import { Loader2, Lock, Mail, User, AlertCircle } from 'lucide-react';
+import { Lock, Mail, User, AlertCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function RegisterPage() {
-  const { register, loading: authLoading } = useAuth();
+  const { register, signInWithGoogle } = useAuth();
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -64,8 +66,8 @@ export default function RegisterPage() {
       return;
     }
 
-    if (formData.password.length < 8) {
-      setError('Password must be at least 8 characters long');
+    if (formData.password.length < 6) {
+      setError('Password must be at least 6 characters long');
       return;
     }
 
@@ -88,16 +90,10 @@ export default function RegisterPage() {
     
     try {
       await register(formData.name, formData.email, formData.password);
-      // If we get here, registration was successful and we're being redirected
-      // No need to show any error message
+      router.push('/dashboard');
     } catch (err: any) {
-      // Only show error if it's a critical error
-      if (err.message.includes('auth')) {
-        console.error('Critical registration error:', err);
-        setError(err.message || 'Failed to create account. Please try again.');
-      }
-      // For non-critical errors, just log them
-      console.warn('Non-critical registration error:', err);
+      console.error('Registration error:', err);
+      setError(err.message || 'Failed to create account. Please try again.');
     }
   };
 
@@ -118,7 +114,7 @@ export default function RegisterPage() {
         </motion.div>
       </motion.div>
       
-      <motion.div 
+      <motion.div
         className="w-full max-w-md z-10"
         variants={containerVariants}
         initial="hidden"
@@ -142,141 +138,158 @@ export default function RegisterPage() {
               />
             </CardHeader>
           
-          <form onSubmit={handleSubmit}>
-            <CardContent className="space-y-4 pt-6">
-              {error && (
-                <motion.div 
-                  className="bg-red-50 p-4 rounded-lg border border-red-200 flex items-start gap-3"
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ type: 'spring' }}
-                >
-                  <AlertCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
-                  <p className="text-sm text-red-700">{error}</p>
+            <form onSubmit={handleSubmit}>
+              <CardContent className="space-y-4 pt-6">
+                {error && (
+                  <motion.div 
+                    className="bg-red-50 p-4 rounded-lg border border-red-200 flex items-start gap-3"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ type: 'spring' }}
+                  >
+                    <AlertCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
+                    <p className="text-sm text-red-700">{error}</p>
+                  </motion.div>
+                )}
+                
+                <motion.div className="space-y-2" variants={itemVariants}>
+                  <Label htmlFor="name" className="text-gray-700 font-medium">Full Name</Label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <User className="h-5 w-5 text-gray-400" />
+                    </div>
+                    <Input
+                      id="name"
+                      name="name"
+                      type="text"
+                      placeholder="John Doe"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="pl-10 bg-white/60 border-gray-300 focus:border-orange-500 focus:ring-orange-500 transition-all duration-200"
+                    />
+                  </div>
                 </motion.div>
-              )}
-              
-              <motion.div className="space-y-2" variants={itemVariants}>
-                <Label htmlFor="name" className="text-gray-700 font-medium">Full Name</Label>
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <User className="h-5 w-5 text-gray-400" />
+                
+                <motion.div className="space-y-2" variants={itemVariants}>
+                  <Label htmlFor="email" className="text-gray-700 font-medium">Email Address</Label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <Mail className="h-5 w-5 text-gray-400" />
+                    </div>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="name@example.com"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="pl-10 bg-white/60 border-gray-300 focus:border-orange-500 focus:ring-orange-500 transition-all duration-200"
+                    />
                   </div>
-                  <Input
-                    id="name"
-                    name="name"
-                    type="text"
-                    placeholder="John Doe"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="pl-10 bg-white/60 border-gray-300 focus:border-orange-500 focus:ring-orange-500 transition-all duration-200"
-                  />
-                </div>
-              </motion.div>
-              
-              <motion.div className="space-y-2" variants={itemVariants}>
-                <Label htmlFor="email" className="text-gray-700 font-medium">Email Address</Label>
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Mail className="h-5 w-5 text-gray-400" />
+                </motion.div>
+                
+                <motion.div className="space-y-2" variants={itemVariants}>
+                  <Label htmlFor="password" className="text-gray-700 font-medium">Password</Label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <Lock className="h-5 w-5 text-gray-400" />
+                    </div>
+                    <Input
+                      id="password"
+                      name="password"
+                      type="password"
+                      required
+                      value={formData.password}
+                      onChange={handleChange}
+                      className="pl-10 bg-white/60 border-gray-300 focus:border-orange-500 focus:ring-orange-500 transition-all duration-200"
+                    />
                   </div>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="name@example.com"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="pl-10 bg-white/60 border-gray-300 focus:border-orange-500 focus:ring-orange-500 transition-all duration-200"
-                  />
-                </div>
-              </motion.div>
-              
-              <motion.div className="space-y-2" variants={itemVariants}>
-                <Label htmlFor="password" className="text-gray-700 font-medium">Password</Label>
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Lock className="h-5 w-5 text-gray-400" />
+                  <p className="text-xs text-gray-500 mt-1">Password must be at least 6 characters long</p>
+                </motion.div>
+                
+                <motion.div className="space-y-2" variants={itemVariants}>
+                  <Label htmlFor="confirmPassword" className="text-gray-700 font-medium">Confirm Password</Label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <Lock className="h-5 w-5 text-gray-400" />
+                    </div>
+                    <Input
+                      id="confirmPassword"
+                      name="confirmPassword"
+                      type="password"
+                      required
+                      value={formData.confirmPassword}
+                      onChange={handleChange}
+                      className="pl-10 bg-white/60 border-gray-300 focus:border-orange-500 focus:ring-orange-500 transition-all duration-200"
+                    />
                   </div>
-                  <Input
-                    id="password"
-                    name="password"
-                    type="password"
+                </motion.div>
+                
+                <motion.div className="flex items-center space-x-2 pt-2" variants={itemVariants}>
+                  <input
+                    type="checkbox"
+                    id="terms"
+                    className="h-4 w-4 text-yellow-600 focus:ring-yellow-500 border-gray-300 rounded"
                     required
-                    value={formData.password}
-                    onChange={handleChange}
-                    className="pl-10 bg-white/60 border-gray-300 focus:border-orange-500 focus:ring-orange-500 transition-all duration-200"
                   />
-                </div>
-                <p className="text-xs text-gray-500 mt-1">Password must be at least 8 characters long</p>
-              </motion.div>
-              
-              <motion.div className="space-y-2" variants={itemVariants}>
-                <Label htmlFor="confirmPassword" className="text-gray-700 font-medium">Confirm Password</Label>
+                  <Label htmlFor="terms" className="text-sm text-gray-600">
+                    I agree to the <a href="#" className="text-yellow-600 hover:text-yellow-500">Terms of Service</a> and <a href="#" className="text-yellow-600 hover:text-yellow-500">Privacy Policy</a>
+                  </Label>
+                </motion.div>
+
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Lock className="h-5 w-5 text-gray-400" />
+                  <div className="absolute inset-0 flex items-center">
+                    <span className="w-full border-t border-gray-300" />
                   </div>
-                  <Input
-                    id="confirmPassword"
-                    name="confirmPassword"
-                    type="password"
-                    required
-                    value={formData.confirmPassword}
-                    onChange={handleChange}
-                    className="pl-10 bg-white/60 border-gray-300 focus:border-orange-500 focus:ring-orange-500 transition-all duration-200"
-                  />
+                  <div className="relative flex justify-center text-sm">
+                    <span className="px-2 bg-yellow-200 text-gray-500">Or continue with</span>
+                  </div>
                 </div>
-              </motion.div>
-              
-              <motion.div className="flex items-center space-x-2 pt-2" variants={itemVariants}>
-                <input
-                  type="checkbox"
-                  id="terms"
-                  className="h-4 w-4 text-yellow-600 focus:ring-yellow-500 border-gray-300 rounded"
-                  required
-                />
-                <Label htmlFor="terms" className="text-sm text-gray-600">
-                  I agree to the <a href="#" className="text-yellow-600 hover:text-yellow-500">Terms of Service</a> and <a href="#" className="text-yellow-600 hover:text-yellow-500">Privacy Policy</a>
-                </Label>
-              </motion.div>
-            </CardContent>
-            
-            <CardFooter className="flex flex-col space-y-4 pb-6">
-              <motion.div variants={itemVariants}>
-                <Button 
-                  type="submit" 
-                  className="w-full bg-gradient-to-r from-yellow-600 to-yellow-600 hover:from-yellow-700 hover:to-yellow-700 text-white font-medium py-2 px-4 rounded-md transition-all duration-200 shadow-md hover:shadow-lg"
-                  disabled={authLoading}
+
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="w-full bg-white hover:bg-gray-50 text-black font-medium"
+                  onClick={() => {
+                    setError('');
+                    signInWithGoogle().catch(err => {
+                      console.error('Google sign in error:', err);
+                      setError('Failed to sign in with Google. Please try again.');
+                    });
+                  }}
                 >
-                  {authLoading ? (
-                    <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Creating account...
-                    </>
-                  ) : 'Create account'}
+                  <svg className="mr-2 h-4 w-4" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
+                    <path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"></path>
+                  </svg>
+                  Sign in with Google
                 </Button>
-              </motion.div>
+              </CardContent>
               
-              {/* Social login options removed */}
-              
-              <motion.div className="text-center text-sm mt-4" variants={itemVariants}>
-                <span className="text-gray-600">Already have an account?</span>{' '}
-                <Link href="/login" className="text-yellow-600 hover:text-yellow-500 font-medium transition-colors duration-200">
-                  Sign in
-                </Link>
-              </motion.div>
-            </CardFooter>
-          </form>
+              <CardFooter className="flex flex-col space-y-4 pb-6">
+                <motion.div variants={itemVariants}>
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-gradient-to-r from-yellow-600 to-yellow-600 hover:from-yellow-700 hover:to-yellow-700 text-white font-medium py-2 px-4 rounded-md transition-all duration-200 shadow-md hover:shadow-lg"
+                  >
+                    Create account
+                  </Button>
+                </motion.div>
+                
+                <motion.div className="text-center text-sm mt-4" variants={itemVariants}>
+                  <span className="text-gray-600">Already have an account?</span>{' '}
+                  <Link href="/login" className="text-yellow-600 hover:text-yellow-500 font-medium transition-colors duration-200">
+                    Sign in
+                  </Link>
+                </motion.div>
+              </CardFooter>
+            </form>
           </Card>
         </motion.div>
-        
-   
       </motion.div>
       
-      <motion.div 
+      <motion.div
         className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-r from-[#ffbd2b] to-[#ffbd2b] rounded-t-[30%] opacity-80 z-0"
         initial={{ x: '-100%', opacity: 0 }}
         animate={{ x: 0, opacity: 0.8 }}
