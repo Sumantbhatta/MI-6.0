@@ -19,9 +19,8 @@ dist/
 *.tsbuildinfo
 
 # Environment variables
-.env
-.env.*
-!.env.example
+
+
 
 # Logs
 logs/
@@ -48,7 +47,6 @@ public/temp/
 
 # Development files
 *.local
-.env.local
 .env.development.local
 .env.test.local
 .env.production.local
