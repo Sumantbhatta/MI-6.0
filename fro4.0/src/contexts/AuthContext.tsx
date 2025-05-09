@@ -152,6 +152,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}`
       });
 
+      router.push('/dashboard');
       return data.user;
     } catch (error: any) {
       console.error('Registration failed:', error);
