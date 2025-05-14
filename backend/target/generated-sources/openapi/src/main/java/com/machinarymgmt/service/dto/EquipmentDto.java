@@ -24,7 +24,7 @@ import jakarta.annotation.Generated;
  */
 @com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-05-06T14:34:14.883037100+05:30[Asia/Calcutta]", comments = "Generator version: 7.13.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-05-13T15:41:51.742519800+05:30[Asia/Calcutta]", comments = "Generator version: 7.13.0")
 public class EquipmentDto {
 
   private @Nullable Long id;
@@ -32,6 +32,8 @@ public class EquipmentDto {
   private @Nullable String name;
 
   private @Nullable String assetCode;
+
+  private @Nullable String vehicleNumber;
 
   private @Nullable Integer yearOfManufacture;
 
@@ -99,6 +101,26 @@ public class EquipmentDto {
 
   public void setAssetCode(String assetCode) {
     this.assetCode = assetCode;
+  }
+
+  public EquipmentDto vehicleNumber(String vehicleNumber) {
+    this.vehicleNumber = vehicleNumber;
+    return this;
+  }
+
+  /**
+   * Get vehicleNumber
+   * @return vehicleNumber
+   */
+  @Size(max = 20) 
+  @Schema(name = "vehicleNumber", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("vehicleNumber")
+  public String getVehicleNumber() {
+    return vehicleNumber;
+  }
+
+  public void setVehicleNumber(String vehicleNumber) {
+    this.vehicleNumber = vehicleNumber;
   }
 
   public EquipmentDto yearOfManufacture(Integer yearOfManufacture) {
@@ -193,6 +215,7 @@ public class EquipmentDto {
     return Objects.equals(this.id, equipmentDto.id) &&
         Objects.equals(this.name, equipmentDto.name) &&
         Objects.equals(this.assetCode, equipmentDto.assetCode) &&
+        Objects.equals(this.vehicleNumber, equipmentDto.vehicleNumber) &&
         Objects.equals(this.yearOfManufacture, equipmentDto.yearOfManufacture) &&
         Objects.equals(this.category, equipmentDto.category) &&
         Objects.equals(this.model, equipmentDto.model) &&
@@ -201,7 +224,7 @@ public class EquipmentDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, assetCode, yearOfManufacture, category, model, project);
+    return Objects.hash(id, name, assetCode, vehicleNumber, yearOfManufacture, category, model, project);
   }
 
   @Override
@@ -211,6 +234,7 @@ public class EquipmentDto {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    assetCode: ").append(toIndentedString(assetCode)).append("\n");
+    sb.append("    vehicleNumber: ").append(toIndentedString(vehicleNumber)).append("\n");
     sb.append("    yearOfManufacture: ").append(toIndentedString(yearOfManufacture)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    model: ").append(toIndentedString(model)).append("\n");

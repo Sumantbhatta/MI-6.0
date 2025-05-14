@@ -40,7 +40,10 @@ public class Equipment {
     
     @Column(name = "Asset_Code", nullable = false, unique = true)
     private String assetCode;
-    
+
+    @Column(name = "vehicle_number", length = 20)
+    private String vehicleNumber;
+
     @Column(name = "Year_of_Manufacture", nullable = false)
     private Integer yearOfManufacture;
     

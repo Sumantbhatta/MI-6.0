@@ -89,12 +89,12 @@ export interface Equipment {
   id: number;
   name: string;
   assetCode: string;
+  vehicleNumber?: string;
   yearOfManufacture: number;
   category: {
     id: number;
     name: string;
   };
-
   model: {
     id: number;
     name: string;
@@ -103,14 +103,16 @@ export interface Equipment {
     id: number;
     name: string;
   };
+  // Index signature to allow string indexing
+  [key: string]: any;
 }
 
 export interface EquipmentRequest {
   name: string;
   categoryId: number;
-
   modelId: number;
   assetCode: string;
+  vehicleNumber?: string;
   yearOfManufacture: number;
   projectId: number;
 }

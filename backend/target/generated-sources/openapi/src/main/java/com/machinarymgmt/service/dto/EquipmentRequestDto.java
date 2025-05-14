@@ -21,7 +21,7 @@ import jakarta.annotation.Generated;
  */
 @com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-05-06T14:34:14.883037100+05:30[Asia/Calcutta]", comments = "Generator version: 7.13.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-05-13T15:41:51.742519800+05:30[Asia/Calcutta]", comments = "Generator version: 7.13.0")
 public class EquipmentRequestDto {
 
   private @Nullable String name;
@@ -31,6 +31,8 @@ public class EquipmentRequestDto {
   private @Nullable Long modelId;
 
   private @Nullable String assetCode;
+
+  private @Nullable String vehicleNumber;
 
   private @Nullable Integer yearOfManufacture;
 
@@ -116,6 +118,26 @@ public class EquipmentRequestDto {
     this.assetCode = assetCode;
   }
 
+  public EquipmentRequestDto vehicleNumber(String vehicleNumber) {
+    this.vehicleNumber = vehicleNumber;
+    return this;
+  }
+
+  /**
+   * Get vehicleNumber
+   * @return vehicleNumber
+   */
+  @Size(max = 20) 
+  @Schema(name = "vehicleNumber", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("vehicleNumber")
+  public String getVehicleNumber() {
+    return vehicleNumber;
+  }
+
+  public void setVehicleNumber(String vehicleNumber) {
+    this.vehicleNumber = vehicleNumber;
+  }
+
   public EquipmentRequestDto yearOfManufacture(Integer yearOfManufacture) {
     this.yearOfManufacture = yearOfManufacture;
     return this;
@@ -169,13 +191,14 @@ public class EquipmentRequestDto {
         Objects.equals(this.categoryId, equipmentRequestDto.categoryId) &&
         Objects.equals(this.modelId, equipmentRequestDto.modelId) &&
         Objects.equals(this.assetCode, equipmentRequestDto.assetCode) &&
+        Objects.equals(this.vehicleNumber, equipmentRequestDto.vehicleNumber) &&
         Objects.equals(this.yearOfManufacture, equipmentRequestDto.yearOfManufacture) &&
         Objects.equals(this.projectId, equipmentRequestDto.projectId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, categoryId, modelId, assetCode, yearOfManufacture, projectId);
+    return Objects.hash(name, categoryId, modelId, assetCode, vehicleNumber, yearOfManufacture, projectId);
   }
 
   @Override
@@ -186,6 +209,7 @@ public class EquipmentRequestDto {
     sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
     sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
     sb.append("    assetCode: ").append(toIndentedString(assetCode)).append("\n");
+    sb.append("    vehicleNumber: ").append(toIndentedString(vehicleNumber)).append("\n");
     sb.append("    yearOfManufacture: ").append(toIndentedString(yearOfManufacture)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("}");

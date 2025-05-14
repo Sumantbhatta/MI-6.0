@@ -21,8 +21,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-05-06T14:35:35+0530",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 23.0.2 (Oracle Corporation)"
+    date = "2025-05-13T15:41:59+0530",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.7 (Oracle Corporation)"
 )
 @Component
 public class EquipmentMapperImpl implements EquipmentMapper {
@@ -38,6 +38,7 @@ public class EquipmentMapperImpl implements EquipmentMapper {
         equipmentDto.setId( equipment.getId() );
         equipmentDto.setName( equipment.getName() );
         equipmentDto.setAssetCode( equipment.getAssetCode() );
+        equipmentDto.setVehicleNumber( equipment.getVehicleNumber() );
         equipmentDto.setYearOfManufacture( equipment.getYearOfManufacture() );
         equipmentDto.setCategory( equipmentCategoryToCategorySummaryDto( equipment.getCategory() ) );
         equipmentDto.setModel( modelToModelSummaryDto( equipment.getModel() ) );
@@ -70,6 +71,7 @@ public class EquipmentMapperImpl implements EquipmentMapper {
 
         equipment.name( dto.getName() );
         equipment.assetCode( dto.getAssetCode() );
+        equipment.vehicleNumber( dto.getVehicleNumber() );
         equipment.yearOfManufacture( dto.getYearOfManufacture() );
 
         return equipment.build();
@@ -83,6 +85,7 @@ public class EquipmentMapperImpl implements EquipmentMapper {
 
         equipment.setName( dto.getName() );
         equipment.setAssetCode( dto.getAssetCode() );
+        equipment.setVehicleNumber( dto.getVehicleNumber() );
         equipment.setYearOfManufacture( dto.getYearOfManufacture() );
     }
 

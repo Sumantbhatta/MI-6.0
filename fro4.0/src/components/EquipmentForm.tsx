@@ -22,6 +22,7 @@ const EquipmentForm: React.FC<EquipmentFormProps> = ({ equipment, onSubmit, onCa
     categoryId: equipment?.category?.id || 0,
     modelId: equipment?.model?.id || 0,
     assetCode: equipment?.assetCode || '',
+    vehicleNumber: equipment?.vehicleNumber || '',
     yearOfManufacture: equipment?.yearOfManufacture || new Date().getFullYear(),
     projectId: equipment?.project?.id || 0,
   });
@@ -70,6 +71,19 @@ const EquipmentForm: React.FC<EquipmentFormProps> = ({ equipment, onSubmit, onCa
               />
             </div>
             <div className="space-y-2">
+              <Label htmlFor="vehicleNumber">Vehicle Number</Label>
+              <Input
+                id="vehicleNumber"
+                name="vehicleNumber"
+                value={formData.vehicleNumber || ''}
+                onChange={(e) => handleChange('vehicleNumber', e.target.value)}
+                maxLength={20}
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-2">
               <Label htmlFor="yearOfManufacture">Year of Manufacture</Label>
               <Input
                 id="yearOfManufacture"
@@ -79,6 +93,9 @@ const EquipmentForm: React.FC<EquipmentFormProps> = ({ equipment, onSubmit, onCa
                 onChange={(e) => handleChange('yearOfManufacture', parseInt(e.target.value))}
                 required
               />
+            </div>
+            <div className="space-y-2">
+              {/* Empty div to maintain grid layout */}
             </div>
           </div>
 

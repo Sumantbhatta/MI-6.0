@@ -1,5 +1,6 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { API_URL } from '@/config';
+import { handleAndNotifyError } from '@/utils/errorHandling';
 
 export interface Project {
   id?: number;
@@ -17,7 +18,7 @@ export const projectService = {
       const response = await axios.get(`${API_URL}/v1/projects`);
       return response.data?.data || [];
     } catch (error) {
-      console.error('Error fetching projects:', error);
+      handleAndNotifyError(error);
       return [];
     }
   },
@@ -27,7 +28,7 @@ export const projectService = {
       const response = await axios.get(`${API_URL}/v1/projects/${id}`);
       return response.data?.data;
     } catch (error) {
-      console.error(`Error fetching project with id ${id}:`, error);
+      handleAndNotifyError(error);
       throw error;
     }
   },
@@ -37,8 +38,9 @@ export const projectService = {
       const response = await axios.post(`${API_URL}/v1/projects`, project);
       return response.data?.data;
     } catch (error) {
-      console.error('Error creating project:', error);
-      throw error;
+      const apiError = handleAndNotifyError(error);
+      // For duplicate entries, we can add more specific handling if needed
+      throw apiError;
     }
   },
 
@@ -47,8 +49,8 @@ export const projectService = {
       const response = await axios.put(`${API_URL}/v1/projects/${id}`, project);
       return response.data?.data;
     } catch (error) {
-      console.error(`Error updating project with id ${id}:`, error);
-      throw error;
+      const apiError = handleAndNotifyError(error);
+      throw apiError;
     }
   },
 
@@ -57,8 +59,8 @@ export const projectService = {
       const response = await axios.delete(`${API_URL}/v1/projects/${id}`);
       return response.data?.data;
     } catch (error) {
-      console.error(`Error deleting project with id ${id}:`, error);
-      throw error;
+      const apiError = handleAndNotifyError(error);
+      throw apiError;
     }
   }
 };

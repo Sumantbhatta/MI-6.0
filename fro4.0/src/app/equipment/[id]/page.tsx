@@ -211,6 +211,10 @@ export default function EquipmentDetailPage() {
                   <h3 className="text-sm font-medium text-muted-foreground">Project</h3>
                   <p className="text-base">{equipment.project?.name}</p>
                 </div>
+                <div>
+                  <h3 className="text-sm font-medium text-muted-foreground">Vehicle Number</h3>
+                  <p className="text-base">{equipment.vehicleNumber || '-'}</p>
+                </div>
               </div>
             </CardContent>
           </Card>

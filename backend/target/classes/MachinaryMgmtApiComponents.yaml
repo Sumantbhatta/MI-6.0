@@ -387,6 +387,9 @@ components:
           type: string
         assetCode:
           type: string
+        vehicleNumber:
+          type: string
+          maxLength: 20
         yearOfManufacture:
           type: integer
         category:
@@ -410,6 +413,9 @@ components:
           format: int64
         assetCode:
           type: string
+        vehicleNumber:
+          type: string
+          maxLength: 20
         yearOfManufacture:
           type: integer
         projectId:

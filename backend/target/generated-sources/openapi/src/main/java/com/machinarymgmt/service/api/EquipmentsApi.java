@@ -36,7 +36,7 @@ import java.util.Map;
 import java.util.Optional;
 import jakarta.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-05-06T14:34:14.883037100+05:30[Asia/Calcutta]", comments = "Generator version: 7.13.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-05-13T15:41:51.742519800+05:30[Asia/Calcutta]", comments = "Generator version: 7.13.0")
 @Validated
 @Tag(name = "Equipments", description = "Endpoints for managing machinery and equipment inventory.")
 public interface EquipmentsApi {
@@ -151,7 +151,7 @@ public interface EquipmentsApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"data\" : [ { \"assetCode\" : \"assetCode\", \"yearOfManufacture\" : 6, \"name\" : \"name\", \"project\" : { \"name\" : \"name\", \"id\" : 5 }, \"model\" : { \"name\" : \"name\", \"id\" : 5 }, \"id\" : 0, \"category\" : { \"name\" : \"name\", \"id\" : 1 } }, { \"assetCode\" : \"assetCode\", \"yearOfManufacture\" : 6, \"name\" : \"name\", \"project\" : { \"name\" : \"name\", \"id\" : 5 }, \"model\" : { \"name\" : \"name\", \"id\" : 5 }, \"id\" : 0, \"category\" : { \"name\" : \"name\", \"id\" : 1 } } ] }";
+                    String exampleString = "{ \"data\" : [ { \"assetCode\" : \"assetCode\", \"yearOfManufacture\" : 6, \"name\" : \"name\", \"vehicleNumber\" : \"vehicleNumber\", \"project\" : { \"name\" : \"name\", \"id\" : 5 }, \"model\" : { \"name\" : \"name\", \"id\" : 5 }, \"id\" : 0, \"category\" : { \"name\" : \"name\", \"id\" : 1 } }, { \"assetCode\" : \"assetCode\", \"yearOfManufacture\" : 6, \"name\" : \"name\", \"vehicleNumber\" : \"vehicleNumber\", \"project\" : { \"name\" : \"name\", \"id\" : 5 }, \"model\" : { \"name\" : \"name\", \"id\" : 5 }, \"id\" : 0, \"category\" : { \"name\" : \"name\", \"id\" : 1 } } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -190,7 +190,7 @@ public interface EquipmentsApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"data\" : { \"assetCode\" : \"assetCode\", \"yearOfManufacture\" : 6, \"name\" : \"name\", \"project\" : { \"name\" : \"name\", \"id\" : 5 }, \"model\" : { \"name\" : \"name\", \"id\" : 5 }, \"id\" : 0, \"category\" : { \"name\" : \"name\", \"id\" : 1 } } }";
+                    String exampleString = "{ \"data\" : { \"assetCode\" : \"assetCode\", \"yearOfManufacture\" : 6, \"name\" : \"name\", \"vehicleNumber\" : \"vehicleNumber\", \"project\" : { \"name\" : \"name\", \"id\" : 5 }, \"model\" : { \"name\" : \"name\", \"id\" : 5 }, \"id\" : 0, \"category\" : { \"name\" : \"name\", \"id\" : 1 } } }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

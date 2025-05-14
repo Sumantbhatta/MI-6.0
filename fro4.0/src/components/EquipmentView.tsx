@@ -27,6 +27,7 @@ const EquipmentView: React.FC<EquipmentViewProps> = ({
   const columns = [
     { key: 'name', label: 'Name' },
     { key: 'assetCode', label: 'Asset Code' },
+    { key: 'vehicleNumber', label: 'Vehicle Number' },
     { key: 'yearOfManufacture', label: 'Year' },
     { key: 'category.name', label: 'Category' },
     { key: 'model.name', label: 'Model' },
@@ -77,6 +78,8 @@ const EquipmentView: React.FC<EquipmentViewProps> = ({
                   <div className="grid grid-cols-2 gap-2 text-sm">
                     <span className="font-medium">Asset Code:</span>
                     <span>{item.assetCode}</span>
+                    <span className="font-medium">Vehicle Number:</span>
+                    <span>{item.vehicleNumber || '-'}</span>
                     <span className="font-medium">Year:</span>
                     <span>{item.yearOfManufacture}</span>
                     <span className="font-medium">Category:</span>
@@ -134,13 +137,13 @@ const EquipmentView: React.FC<EquipmentViewProps> = ({
             <TableBody>
               {equipment.map((item) => (
                 <TableRow key={item.id}>
-                  {columns.map((column) => (
-                    <TableCell key={column.key}>
-                      {column.key.includes('.')
-                        ? item[column.key.split('.')[0]]?.[column.key.split('.')[1]]
-                        : item[column.key]}
-                    </TableCell>
-                  ))}
+                  <TableCell>{item.name}</TableCell>
+                  <TableCell>{item.assetCode}</TableCell>
+                  <TableCell>{item.vehicleNumber || '-'}</TableCell>
+                  <TableCell>{item.yearOfManufacture}</TableCell>
+                  <TableCell>{item.category?.name}</TableCell>
+                  <TableCell>{item.model?.name}</TableCell>
+                  <TableCell>{item.project?.name || 'None'}</TableCell>
                   <TableCell className="text-right">
                     <div className="flex justify-end gap-2">
                       <Button

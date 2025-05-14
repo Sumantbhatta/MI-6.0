@@ -10,6 +10,7 @@ const columns = [
   { key: 'id', label: 'ID' },
   { key: 'name', label: 'Name' },
   { key: 'assetCode', label: 'Asset Code' },
+  { key: 'vehicleNumber', label: 'Vehicle Number' },
   { key: 'yearOfManufacture', label: 'Year' },
   { key: 'category.name', label: 'Category' },
   { key: 'model.name', label: 'Model' },

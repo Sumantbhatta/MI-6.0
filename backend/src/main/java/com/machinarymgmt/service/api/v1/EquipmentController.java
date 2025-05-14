@@ -57,7 +57,7 @@ public class EquipmentController implements EquipmentsApi{
    private final ModelService modelService;
    
 
-   @Autowired
+@Autowired
 private EquipmentCategoryService equipmentCategoryService;
 
 @Autowired
