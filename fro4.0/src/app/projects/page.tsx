@@ -206,13 +206,13 @@ export default function ProjectsPage() {
   }
 
   return (
-    <div className="space-y-6 p-6">
+    <div className="space-y-6 p-6 ">
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold tracking-tight">Projects</h1>
           <p className="text-muted-foreground">Manage and monitor all construction projects</p>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 ">
           <Button onClick={() => handleOpen()} className="gap-2">
             <span className="hidden sm:inline">Add Project</span>
             <span className="sm:hidden">+</span>
@@ -221,7 +221,7 @@ export default function ProjectsPage() {
       </div>
 
       {/* Project Status Cards */}
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="grid gap-4 md:grid-cols-3 bg-gradient-to-br from-blue-500 to-indigo-600">
         <Card>
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-medium">Active Projects</CardTitle>
@@ -271,7 +271,7 @@ export default function ProjectsPage() {
       {/* Projects List */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-base font-medium">Projects List</CardTitle>
+          <CardTitle className="text-base font-medium ">Projects List</CardTitle>
           <p className="text-xs text-muted-foreground">All construction projects</p>
         </CardHeader>
         <CardContent className="p-0">
@@ -284,7 +284,7 @@ export default function ProjectsPage() {
               value={search}
               onChange={e => setSearch(e.target.value)}
             />
-            <div className="flex flex-col md:flex-row md:items-center gap-2 mt-2 md:mt-0">
+            <div className="flex flex-col md:flex-row md:items-center gap-2 mt-2 md:mt-0 bg-gradient-to-br from-blue-500 to-indigo-600">
               <Select value={statusFilter} onValueChange={setStatusFilter}>
                 <SelectTrigger className="w-[160px]">
                   <SelectValue placeholder="All Statuses" />
@@ -298,7 +298,7 @@ export default function ProjectsPage() {
               </Select>
             </div>
           </div>
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto ">
             <DataTable
               title="Projects"
               columns={columns}
@@ -309,7 +309,7 @@ export default function ProjectsPage() {
               renderCustomCell={renderCustomCell}
             />
           </div>
-          <div className="flex items-center justify-between mt-4 px-4 pb-4">
+          <div className="flex items-center justify-between mt-4 px-4 pb-4 ">
             <div className="flex items-center gap-2">
               <Button
                 variant="outline"

@@ -83,7 +83,7 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="container mx-auto py-10">
+    <div className="container mx-auto py-10 bg-gradient-to-br from-blue-400 to-indigo-500">
       <h1 className="text-2xl font-bold mb-6">My Profile</h1>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

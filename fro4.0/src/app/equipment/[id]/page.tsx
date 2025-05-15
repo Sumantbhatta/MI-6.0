@@ -139,7 +139,7 @@ export default function EquipmentDetailPage() {
             <span className="text-xs text-muted-foreground">Asset Code</span>
             <FileText className="w-4 h-4 text-muted-foreground" />
           </CardHeader>
-          <CardContent className="pt-0">
+          <CardContent className="pt-0 bg-gradient-to-br from-blue-500 to-indigo-600">
             <span className="text-lg font-semibold">{equipment.assetCode}</span>
           </CardContent>
         </Card>
