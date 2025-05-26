@@ -20,8 +20,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-05-15T11:58:37+0530",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 23.0.2 (Oracle Corporation)"
+    date = "2025-05-26T16:53:17+0530",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.42.0.v20250514-1000, environment: Java 21.0.7 (Eclipse Adoptium)"
 )
 @Component
 public class EquipmentUtilizationMapperImpl implements EquipmentUtilizationMapper {
@@ -94,40 +94,40 @@ public class EquipmentUtilizationMapperImpl implements EquipmentUtilizationMappe
 
         EquipmentUtilization.EquipmentUtilizationBuilder equipmentUtilization = EquipmentUtilization.builder();
 
-        equipmentUtilization.id( dto.getId() );
-        equipmentUtilization.equipment( equipmentSummaryDtoToEquipment( dto.getEquipment() ) );
-        equipmentUtilization.project( projectSummaryDtoToProject( dto.getProject() ) );
-        if ( dto.getMonth() != null ) {
-            equipmentUtilization.month( dto.getMonth().intValue() );
-        }
-        if ( dto.getYear() != null ) {
-            equipmentUtilization.year( dto.getYear().intValue() );
-        }
-        if ( dto.getTargetHoursKms() != null ) {
-            equipmentUtilization.targetHoursKms( BigDecimal.valueOf( dto.getTargetHoursKms() ) );
-        }
-        if ( dto.getStartingHoursKms() != null ) {
-            equipmentUtilization.startingHoursKms( BigDecimal.valueOf( dto.getStartingHoursKms() ) );
-        }
-        if ( dto.getClosingHoursKms() != null ) {
-            equipmentUtilization.closingHoursKms( BigDecimal.valueOf( dto.getClosingHoursKms() ) );
-        }
-        if ( dto.getBreakdownHoursKms() != null ) {
-            equipmentUtilization.breakdownHoursKms( BigDecimal.valueOf( dto.getBreakdownHoursKms() ) );
-        }
-        if ( dto.getDieselConsumedLtrs() != null ) {
-            equipmentUtilization.dieselConsumedLtrs( BigDecimal.valueOf( dto.getDieselConsumedLtrs() ) );
+        if ( dto.getAvailabilityHours() != null ) {
+            equipmentUtilization.availabilityHours( BigDecimal.valueOf( dto.getAvailabilityHours() ) );
         }
         if ( dto.getAvgFuelConsumption() != null ) {
             equipmentUtilization.avgFuelConsumption( BigDecimal.valueOf( dto.getAvgFuelConsumption() ) );
         }
-        if ( dto.getAvailabilityHours() != null ) {
-            equipmentUtilization.availabilityHours( BigDecimal.valueOf( dto.getAvailabilityHours() ) );
+        if ( dto.getBreakdownHoursKms() != null ) {
+            equipmentUtilization.breakdownHoursKms( BigDecimal.valueOf( dto.getBreakdownHoursKms() ) );
+        }
+        if ( dto.getClosingHoursKms() != null ) {
+            equipmentUtilization.closingHoursKms( BigDecimal.valueOf( dto.getClosingHoursKms() ) );
+        }
+        if ( dto.getDieselConsumedLtrs() != null ) {
+            equipmentUtilization.dieselConsumedLtrs( BigDecimal.valueOf( dto.getDieselConsumedLtrs() ) );
+        }
+        equipmentUtilization.equipment( equipmentSummaryDtoToEquipment( dto.getEquipment() ) );
+        equipmentUtilization.id( dto.getId() );
+        if ( dto.getMonth() != null ) {
+            equipmentUtilization.month( dto.getMonth().intValue() );
+        }
+        equipmentUtilization.project( projectSummaryDtoToProject( dto.getProject() ) );
+        equipmentUtilization.remarks( dto.getRemarks() );
+        if ( dto.getStartingHoursKms() != null ) {
+            equipmentUtilization.startingHoursKms( BigDecimal.valueOf( dto.getStartingHoursKms() ) );
+        }
+        if ( dto.getTargetHoursKms() != null ) {
+            equipmentUtilization.targetHoursKms( BigDecimal.valueOf( dto.getTargetHoursKms() ) );
         }
         if ( dto.getUtilizationPercentage() != null ) {
             equipmentUtilization.utilizationPercentage( BigDecimal.valueOf( dto.getUtilizationPercentage() ) );
         }
-        equipmentUtilization.remarks( dto.getRemarks() );
+        if ( dto.getYear() != null ) {
+            equipmentUtilization.year( dto.getYear().intValue() );
+        }
 
         return equipmentUtilization.build();
     }
@@ -140,37 +140,37 @@ public class EquipmentUtilizationMapperImpl implements EquipmentUtilizationMappe
 
         EquipmentUtilization.EquipmentUtilizationBuilder equipmentUtilization = EquipmentUtilization.builder();
 
-        if ( dto.getMonth() != null ) {
-            equipmentUtilization.month( dto.getMonth().intValue() );
-        }
-        if ( dto.getYear() != null ) {
-            equipmentUtilization.year( dto.getYear().intValue() );
-        }
-        if ( dto.getTargetHoursKms() != null ) {
-            equipmentUtilization.targetHoursKms( BigDecimal.valueOf( dto.getTargetHoursKms() ) );
-        }
-        if ( dto.getStartingHoursKms() != null ) {
-            equipmentUtilization.startingHoursKms( BigDecimal.valueOf( dto.getStartingHoursKms() ) );
-        }
-        if ( dto.getClosingHoursKms() != null ) {
-            equipmentUtilization.closingHoursKms( BigDecimal.valueOf( dto.getClosingHoursKms() ) );
-        }
-        if ( dto.getBreakdownHoursKms() != null ) {
-            equipmentUtilization.breakdownHoursKms( BigDecimal.valueOf( dto.getBreakdownHoursKms() ) );
-        }
-        if ( dto.getDieselConsumedLtrs() != null ) {
-            equipmentUtilization.dieselConsumedLtrs( BigDecimal.valueOf( dto.getDieselConsumedLtrs() ) );
+        if ( dto.getAvailabilityHours() != null ) {
+            equipmentUtilization.availabilityHours( BigDecimal.valueOf( dto.getAvailabilityHours() ) );
         }
         if ( dto.getAvgFuelConsumption() != null ) {
             equipmentUtilization.avgFuelConsumption( BigDecimal.valueOf( dto.getAvgFuelConsumption() ) );
         }
-        if ( dto.getAvailabilityHours() != null ) {
-            equipmentUtilization.availabilityHours( BigDecimal.valueOf( dto.getAvailabilityHours() ) );
+        if ( dto.getBreakdownHoursKms() != null ) {
+            equipmentUtilization.breakdownHoursKms( BigDecimal.valueOf( dto.getBreakdownHoursKms() ) );
+        }
+        if ( dto.getClosingHoursKms() != null ) {
+            equipmentUtilization.closingHoursKms( BigDecimal.valueOf( dto.getClosingHoursKms() ) );
+        }
+        if ( dto.getDieselConsumedLtrs() != null ) {
+            equipmentUtilization.dieselConsumedLtrs( BigDecimal.valueOf( dto.getDieselConsumedLtrs() ) );
+        }
+        if ( dto.getMonth() != null ) {
+            equipmentUtilization.month( dto.getMonth().intValue() );
+        }
+        equipmentUtilization.remarks( dto.getRemarks() );
+        if ( dto.getStartingHoursKms() != null ) {
+            equipmentUtilization.startingHoursKms( BigDecimal.valueOf( dto.getStartingHoursKms() ) );
+        }
+        if ( dto.getTargetHoursKms() != null ) {
+            equipmentUtilization.targetHoursKms( BigDecimal.valueOf( dto.getTargetHoursKms() ) );
         }
         if ( dto.getUtilizationPercentage() != null ) {
             equipmentUtilization.utilizationPercentage( BigDecimal.valueOf( dto.getUtilizationPercentage() ) );
         }
-        equipmentUtilization.remarks( dto.getRemarks() );
+        if ( dto.getYear() != null ) {
+            equipmentUtilization.year( dto.getYear().intValue() );
+        }
 
         return equipmentUtilization.build();
     }
@@ -181,47 +181,11 @@ public class EquipmentUtilizationMapperImpl implements EquipmentUtilizationMappe
             return;
         }
 
-        if ( dto.getMonth() != null ) {
-            utilization.setMonth( dto.getMonth().intValue() );
+        if ( dto.getAvailabilityHours() != null ) {
+            utilization.setAvailabilityHours( BigDecimal.valueOf( dto.getAvailabilityHours() ) );
         }
         else {
-            utilization.setMonth( null );
-        }
-        if ( dto.getYear() != null ) {
-            utilization.setYear( dto.getYear().intValue() );
-        }
-        else {
-            utilization.setYear( null );
-        }
-        if ( dto.getTargetHoursKms() != null ) {
-            utilization.setTargetHoursKms( BigDecimal.valueOf( dto.getTargetHoursKms() ) );
-        }
-        else {
-            utilization.setTargetHoursKms( null );
-        }
-        if ( dto.getStartingHoursKms() != null ) {
-            utilization.setStartingHoursKms( BigDecimal.valueOf( dto.getStartingHoursKms() ) );
-        }
-        else {
-            utilization.setStartingHoursKms( null );
-        }
-        if ( dto.getClosingHoursKms() != null ) {
-            utilization.setClosingHoursKms( BigDecimal.valueOf( dto.getClosingHoursKms() ) );
-        }
-        else {
-            utilization.setClosingHoursKms( null );
-        }
-        if ( dto.getBreakdownHoursKms() != null ) {
-            utilization.setBreakdownHoursKms( BigDecimal.valueOf( dto.getBreakdownHoursKms() ) );
-        }
-        else {
-            utilization.setBreakdownHoursKms( null );
-        }
-        if ( dto.getDieselConsumedLtrs() != null ) {
-            utilization.setDieselConsumedLtrs( BigDecimal.valueOf( dto.getDieselConsumedLtrs() ) );
-        }
-        else {
-            utilization.setDieselConsumedLtrs( null );
+            utilization.setAvailabilityHours( null );
         }
         if ( dto.getAvgFuelConsumption() != null ) {
             utilization.setAvgFuelConsumption( BigDecimal.valueOf( dto.getAvgFuelConsumption() ) );
@@ -229,11 +193,42 @@ public class EquipmentUtilizationMapperImpl implements EquipmentUtilizationMappe
         else {
             utilization.setAvgFuelConsumption( null );
         }
-        if ( dto.getAvailabilityHours() != null ) {
-            utilization.setAvailabilityHours( BigDecimal.valueOf( dto.getAvailabilityHours() ) );
+        if ( dto.getBreakdownHoursKms() != null ) {
+            utilization.setBreakdownHoursKms( BigDecimal.valueOf( dto.getBreakdownHoursKms() ) );
         }
         else {
-            utilization.setAvailabilityHours( null );
+            utilization.setBreakdownHoursKms( null );
+        }
+        if ( dto.getClosingHoursKms() != null ) {
+            utilization.setClosingHoursKms( BigDecimal.valueOf( dto.getClosingHoursKms() ) );
+        }
+        else {
+            utilization.setClosingHoursKms( null );
+        }
+        if ( dto.getDieselConsumedLtrs() != null ) {
+            utilization.setDieselConsumedLtrs( BigDecimal.valueOf( dto.getDieselConsumedLtrs() ) );
+        }
+        else {
+            utilization.setDieselConsumedLtrs( null );
+        }
+        if ( dto.getMonth() != null ) {
+            utilization.setMonth( dto.getMonth().intValue() );
+        }
+        else {
+            utilization.setMonth( null );
+        }
+        utilization.setRemarks( dto.getRemarks() );
+        if ( dto.getStartingHoursKms() != null ) {
+            utilization.setStartingHoursKms( BigDecimal.valueOf( dto.getStartingHoursKms() ) );
+        }
+        else {
+            utilization.setStartingHoursKms( null );
+        }
+        if ( dto.getTargetHoursKms() != null ) {
+            utilization.setTargetHoursKms( BigDecimal.valueOf( dto.getTargetHoursKms() ) );
+        }
+        else {
+            utilization.setTargetHoursKms( null );
         }
         if ( dto.getUtilizationPercentage() != null ) {
             utilization.setUtilizationPercentage( BigDecimal.valueOf( dto.getUtilizationPercentage() ) );
@@ -241,7 +236,12 @@ public class EquipmentUtilizationMapperImpl implements EquipmentUtilizationMappe
         else {
             utilization.setUtilizationPercentage( null );
         }
-        utilization.setRemarks( dto.getRemarks() );
+        if ( dto.getYear() != null ) {
+            utilization.setYear( dto.getYear().intValue() );
+        }
+        else {
+            utilization.setYear( null );
+        }
     }
 
     @Override
@@ -252,13 +252,13 @@ public class EquipmentUtilizationMapperImpl implements EquipmentUtilizationMappe
 
         EquipmentUtilizationListResponse equipmentUtilizationListResponse = new EquipmentUtilizationListResponse();
 
-        equipmentUtilizationListResponse.setRespType( baseApiResponse.getRespType() );
-        equipmentUtilizationListResponse.setMetadata( baseApiResponse.getMetadata() );
-        equipmentUtilizationListResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            equipmentUtilizationListResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            equipmentUtilizationListResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        equipmentUtilizationListResponse.metadata( baseApiResponse.getMetadata() );
+        equipmentUtilizationListResponse.respType( baseApiResponse.getRespType() );
+        equipmentUtilizationListResponse.status( baseApiResponse.getStatus() );
 
         return equipmentUtilizationListResponse;
     }
@@ -271,13 +271,13 @@ public class EquipmentUtilizationMapperImpl implements EquipmentUtilizationMappe
 
         EquipmentUtilizationResponse equipmentUtilizationResponse = new EquipmentUtilizationResponse();
 
-        equipmentUtilizationResponse.setRespType( baseApiResponse.getRespType() );
-        equipmentUtilizationResponse.setMetadata( baseApiResponse.getMetadata() );
-        equipmentUtilizationResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            equipmentUtilizationResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            equipmentUtilizationResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        equipmentUtilizationResponse.metadata( baseApiResponse.getMetadata() );
+        equipmentUtilizationResponse.respType( baseApiResponse.getRespType() );
+        equipmentUtilizationResponse.status( baseApiResponse.getStatus() );
 
         return equipmentUtilizationResponse;
     }
@@ -290,13 +290,13 @@ public class EquipmentUtilizationMapperImpl implements EquipmentUtilizationMappe
 
         MachinaryMgmtBaseApiResponse machinaryMgmtBaseApiResponse = new MachinaryMgmtBaseApiResponse();
 
-        machinaryMgmtBaseApiResponse.setRespType( baseApiResponse.getRespType() );
-        machinaryMgmtBaseApiResponse.setMetadata( baseApiResponse.getMetadata() );
-        machinaryMgmtBaseApiResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            machinaryMgmtBaseApiResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            machinaryMgmtBaseApiResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        machinaryMgmtBaseApiResponse.metadata( baseApiResponse.getMetadata() );
+        machinaryMgmtBaseApiResponse.respType( baseApiResponse.getRespType() );
+        machinaryMgmtBaseApiResponse.status( baseApiResponse.getStatus() );
 
         return machinaryMgmtBaseApiResponse;
     }

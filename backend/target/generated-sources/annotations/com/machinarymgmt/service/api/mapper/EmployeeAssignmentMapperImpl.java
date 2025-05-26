@@ -21,8 +21,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-05-15T11:58:38+0530",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 23.0.2 (Oracle Corporation)"
+    date = "2025-05-26T16:53:17+0530",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.42.0.v20250514-1000, environment: Java 21.0.7 (Eclipse Adoptium)"
 )
 @Component
 public class EmployeeAssignmentMapperImpl implements EmployeeAssignmentMapper {
@@ -66,11 +66,11 @@ public class EmployeeAssignmentMapperImpl implements EmployeeAssignmentMapper {
 
         EmployeeAssignment.EmployeeAssignmentBuilder employeeAssignment = EmployeeAssignment.builder();
 
-        employeeAssignment.id( dto.getId() );
         employeeAssignment.employee( employeeSummaryDtoToEmployee( dto.getEmployee() ) );
-        employeeAssignment.project( projectSummaryDtoToProject( dto.getProject() ) );
         employeeAssignment.equipment( equipmentSummaryDtoToEquipment( dto.getEquipment() ) );
+        employeeAssignment.id( dto.getId() );
         employeeAssignment.joiningDate( dto.getJoiningDate() );
+        employeeAssignment.project( projectSummaryDtoToProject( dto.getProject() ) );
 
         return employeeAssignment.build();
     }
@@ -105,13 +105,13 @@ public class EmployeeAssignmentMapperImpl implements EmployeeAssignmentMapper {
 
         EmployeeAssignmentListResponse employeeAssignmentListResponse = new EmployeeAssignmentListResponse();
 
-        employeeAssignmentListResponse.setRespType( baseApiResponse.getRespType() );
-        employeeAssignmentListResponse.setMetadata( baseApiResponse.getMetadata() );
-        employeeAssignmentListResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            employeeAssignmentListResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            employeeAssignmentListResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        employeeAssignmentListResponse.metadata( baseApiResponse.getMetadata() );
+        employeeAssignmentListResponse.respType( baseApiResponse.getRespType() );
+        employeeAssignmentListResponse.status( baseApiResponse.getStatus() );
 
         return employeeAssignmentListResponse;
     }
@@ -124,13 +124,13 @@ public class EmployeeAssignmentMapperImpl implements EmployeeAssignmentMapper {
 
         EmployeeAssignmentResponse employeeAssignmentResponse = new EmployeeAssignmentResponse();
 
-        employeeAssignmentResponse.setRespType( baseApiResponse.getRespType() );
-        employeeAssignmentResponse.setMetadata( baseApiResponse.getMetadata() );
-        employeeAssignmentResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            employeeAssignmentResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            employeeAssignmentResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        employeeAssignmentResponse.metadata( baseApiResponse.getMetadata() );
+        employeeAssignmentResponse.respType( baseApiResponse.getRespType() );
+        employeeAssignmentResponse.status( baseApiResponse.getStatus() );
 
         return employeeAssignmentResponse;
     }
@@ -143,13 +143,13 @@ public class EmployeeAssignmentMapperImpl implements EmployeeAssignmentMapper {
 
         MachinaryMgmtBaseApiResponse machinaryMgmtBaseApiResponse = new MachinaryMgmtBaseApiResponse();
 
-        machinaryMgmtBaseApiResponse.setRespType( baseApiResponse.getRespType() );
-        machinaryMgmtBaseApiResponse.setMetadata( baseApiResponse.getMetadata() );
-        machinaryMgmtBaseApiResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            machinaryMgmtBaseApiResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            machinaryMgmtBaseApiResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        machinaryMgmtBaseApiResponse.metadata( baseApiResponse.getMetadata() );
+        machinaryMgmtBaseApiResponse.respType( baseApiResponse.getRespType() );
+        machinaryMgmtBaseApiResponse.status( baseApiResponse.getStatus() );
 
         return machinaryMgmtBaseApiResponse;
     }
@@ -206,19 +206,6 @@ public class EmployeeAssignmentMapperImpl implements EmployeeAssignmentMapper {
         return employee.build();
     }
 
-    protected Project projectSummaryDtoToProject(ProjectSummaryDto projectSummaryDto) {
-        if ( projectSummaryDto == null ) {
-            return null;
-        }
-
-        Project.ProjectBuilder project = Project.builder();
-
-        project.id( projectSummaryDto.getId() );
-        project.name( projectSummaryDto.getName() );
-
-        return project.build();
-    }
-
     protected Equipment equipmentSummaryDtoToEquipment(EquipmentSummaryDto equipmentSummaryDto) {
         if ( equipmentSummaryDto == null ) {
             return null;
@@ -230,5 +217,18 @@ public class EmployeeAssignmentMapperImpl implements EmployeeAssignmentMapper {
         equipment.name( equipmentSummaryDto.getName() );
 
         return equipment.build();
+    }
+
+    protected Project projectSummaryDtoToProject(ProjectSummaryDto projectSummaryDto) {
+        if ( projectSummaryDto == null ) {
+            return null;
+        }
+
+        Project.ProjectBuilder project = Project.builder();
+
+        project.id( projectSummaryDto.getId() );
+        project.name( projectSummaryDto.getName() );
+
+        return project.build();
     }
 }

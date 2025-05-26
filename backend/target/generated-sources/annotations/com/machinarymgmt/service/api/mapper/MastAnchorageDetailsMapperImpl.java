@@ -19,8 +19,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-05-15T11:58:38+0530",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 23.0.2 (Oracle Corporation)"
+    date = "2025-05-26T16:53:17+0530",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.42.0.v20250514-1000, environment: Java 21.0.7 (Eclipse Adoptium)"
 )
 @Component
 public class MastAnchorageDetailsMapperImpl implements MastAnchorageDetailsMapper {
@@ -76,20 +76,20 @@ public class MastAnchorageDetailsMapperImpl implements MastAnchorageDetailsMappe
 
         MastAnchorageDetails.MastAnchorageDetailsBuilder mastAnchorageDetails = MastAnchorageDetails.builder();
 
-        mastAnchorageDetails.status( dto.getStatus() );
+        mastAnchorageDetails.anchorageAtSite( dto.getAnchorageAtSite() );
+        mastAnchorageDetails.anchorageFixedAtSite( dto.getAnchorageFixedAtSite() );
+        mastAnchorageDetails.anchorageIdleAtSite( dto.getAnchorageIdleAtSite() );
         mastAnchorageDetails.location( dto.getLocation() );
         mastAnchorageDetails.mastAvailableAtSite( dto.getMastAvailableAtSite() );
         mastAnchorageDetails.mastFixedAtSite( dto.getMastFixedAtSite() );
         mastAnchorageDetails.mastIdleAtSite( dto.getMastIdleAtSite() );
-        mastAnchorageDetails.totalMastRequirement( dto.getTotalMastRequirement() );
-        mastAnchorageDetails.anchorageAtSite( dto.getAnchorageAtSite() );
-        mastAnchorageDetails.anchorageFixedAtSite( dto.getAnchorageFixedAtSite() );
-        mastAnchorageDetails.anchorageIdleAtSite( dto.getAnchorageIdleAtSite() );
-        mastAnchorageDetails.totalAnchorageRequirement( dto.getTotalAnchorageRequirement() );
-        mastAnchorageDetails.presentHeightOfHoist( dto.getPresentHeightOfHoist() );
         mastAnchorageDetails.presentBuildingHeight( dto.getPresentBuildingHeight() );
-        mastAnchorageDetails.totalBuildingHeight( dto.getTotalBuildingHeight() );
+        mastAnchorageDetails.presentHeightOfHoist( dto.getPresentHeightOfHoist() );
         mastAnchorageDetails.remarks( dto.getRemarks() );
+        mastAnchorageDetails.status( dto.getStatus() );
+        mastAnchorageDetails.totalAnchorageRequirement( dto.getTotalAnchorageRequirement() );
+        mastAnchorageDetails.totalBuildingHeight( dto.getTotalBuildingHeight() );
+        mastAnchorageDetails.totalMastRequirement( dto.getTotalMastRequirement() );
 
         return mastAnchorageDetails.build();
     }
@@ -102,13 +102,13 @@ public class MastAnchorageDetailsMapperImpl implements MastAnchorageDetailsMappe
 
         MastAnchorageDetailsListResponse mastAnchorageDetailsListResponse = new MastAnchorageDetailsListResponse();
 
-        mastAnchorageDetailsListResponse.setRespType( baseApiResponse.getRespType() );
-        mastAnchorageDetailsListResponse.setMetadata( baseApiResponse.getMetadata() );
-        mastAnchorageDetailsListResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            mastAnchorageDetailsListResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            mastAnchorageDetailsListResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        mastAnchorageDetailsListResponse.metadata( baseApiResponse.getMetadata() );
+        mastAnchorageDetailsListResponse.respType( baseApiResponse.getRespType() );
+        mastAnchorageDetailsListResponse.status( baseApiResponse.getStatus() );
 
         return mastAnchorageDetailsListResponse;
     }
@@ -121,13 +121,13 @@ public class MastAnchorageDetailsMapperImpl implements MastAnchorageDetailsMappe
 
         MastAnchorageDetailsResponse mastAnchorageDetailsResponse = new MastAnchorageDetailsResponse();
 
-        mastAnchorageDetailsResponse.setRespType( baseApiResponse.getRespType() );
-        mastAnchorageDetailsResponse.setMetadata( baseApiResponse.getMetadata() );
-        mastAnchorageDetailsResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            mastAnchorageDetailsResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            mastAnchorageDetailsResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        mastAnchorageDetailsResponse.metadata( baseApiResponse.getMetadata() );
+        mastAnchorageDetailsResponse.respType( baseApiResponse.getRespType() );
+        mastAnchorageDetailsResponse.status( baseApiResponse.getStatus() );
 
         return mastAnchorageDetailsResponse;
     }
@@ -140,13 +140,13 @@ public class MastAnchorageDetailsMapperImpl implements MastAnchorageDetailsMappe
 
         MachinaryMgmtBaseApiResponse machinaryMgmtBaseApiResponse = new MachinaryMgmtBaseApiResponse();
 
-        machinaryMgmtBaseApiResponse.setRespType( baseApiResponse.getRespType() );
-        machinaryMgmtBaseApiResponse.setMetadata( baseApiResponse.getMetadata() );
-        machinaryMgmtBaseApiResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            machinaryMgmtBaseApiResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            machinaryMgmtBaseApiResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        machinaryMgmtBaseApiResponse.metadata( baseApiResponse.getMetadata() );
+        machinaryMgmtBaseApiResponse.respType( baseApiResponse.getRespType() );
+        machinaryMgmtBaseApiResponse.status( baseApiResponse.getStatus() );
 
         return machinaryMgmtBaseApiResponse;
     }
@@ -157,20 +157,20 @@ public class MastAnchorageDetailsMapperImpl implements MastAnchorageDetailsMappe
             return;
         }
 
-        details.setStatus( dto.getStatus() );
+        details.setAnchorageAtSite( dto.getAnchorageAtSite() );
+        details.setAnchorageFixedAtSite( dto.getAnchorageFixedAtSite() );
+        details.setAnchorageIdleAtSite( dto.getAnchorageIdleAtSite() );
         details.setLocation( dto.getLocation() );
         details.setMastAvailableAtSite( dto.getMastAvailableAtSite() );
         details.setMastFixedAtSite( dto.getMastFixedAtSite() );
         details.setMastIdleAtSite( dto.getMastIdleAtSite() );
-        details.setTotalMastRequirement( dto.getTotalMastRequirement() );
-        details.setAnchorageAtSite( dto.getAnchorageAtSite() );
-        details.setAnchorageFixedAtSite( dto.getAnchorageFixedAtSite() );
-        details.setAnchorageIdleAtSite( dto.getAnchorageIdleAtSite() );
-        details.setTotalAnchorageRequirement( dto.getTotalAnchorageRequirement() );
-        details.setPresentHeightOfHoist( dto.getPresentHeightOfHoist() );
         details.setPresentBuildingHeight( dto.getPresentBuildingHeight() );
-        details.setTotalBuildingHeight( dto.getTotalBuildingHeight() );
+        details.setPresentHeightOfHoist( dto.getPresentHeightOfHoist() );
         details.setRemarks( dto.getRemarks() );
+        details.setStatus( dto.getStatus() );
+        details.setTotalAnchorageRequirement( dto.getTotalAnchorageRequirement() );
+        details.setTotalBuildingHeight( dto.getTotalBuildingHeight() );
+        details.setTotalMastRequirement( dto.getTotalMastRequirement() );
     }
 
     protected ProjectSummaryDto projectToProjectSummaryDto(Project project) {

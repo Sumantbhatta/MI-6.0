@@ -15,8 +15,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-05-15T11:58:38+0530",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 23.0.2 (Oracle Corporation)"
+    date = "2025-05-26T16:53:16+0530",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.42.0.v20250514-1000, environment: Java 21.0.7 (Eclipse Adoptium)"
 )
 @Component
 public class DesignationMapperImpl implements DesignationMapper {
@@ -72,8 +72,8 @@ public class DesignationMapperImpl implements DesignationMapper {
 
         Designation.DesignationBuilder designation = Designation.builder();
 
-        designation.name( dto.getName() );
         designation.description( dto.getDescription() );
+        designation.name( dto.getName() );
 
         return designation.build();
     }
@@ -84,8 +84,8 @@ public class DesignationMapperImpl implements DesignationMapper {
             return;
         }
 
-        designation.setName( dto.getName() );
         designation.setDescription( dto.getDescription() );
+        designation.setName( dto.getName() );
     }
 
     @Override
@@ -96,13 +96,13 @@ public class DesignationMapperImpl implements DesignationMapper {
 
         DesignationListResponse designationListResponse = new DesignationListResponse();
 
-        designationListResponse.setRespType( baseApiResponse.getRespType() );
-        designationListResponse.setMetadata( baseApiResponse.getMetadata() );
-        designationListResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            designationListResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            designationListResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        designationListResponse.metadata( baseApiResponse.getMetadata() );
+        designationListResponse.respType( baseApiResponse.getRespType() );
+        designationListResponse.status( baseApiResponse.getStatus() );
 
         return designationListResponse;
     }
@@ -115,13 +115,13 @@ public class DesignationMapperImpl implements DesignationMapper {
 
         DesignationResponse designationResponse = new DesignationResponse();
 
-        designationResponse.setRespType( baseApiResponse.getRespType() );
-        designationResponse.setMetadata( baseApiResponse.getMetadata() );
-        designationResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            designationResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            designationResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        designationResponse.metadata( baseApiResponse.getMetadata() );
+        designationResponse.respType( baseApiResponse.getRespType() );
+        designationResponse.status( baseApiResponse.getStatus() );
 
         return designationResponse;
     }
@@ -134,13 +134,13 @@ public class DesignationMapperImpl implements DesignationMapper {
 
         MachinaryMgmtBaseApiResponse machinaryMgmtBaseApiResponse = new MachinaryMgmtBaseApiResponse();
 
-        machinaryMgmtBaseApiResponse.setRespType( baseApiResponse.getRespType() );
-        machinaryMgmtBaseApiResponse.setMetadata( baseApiResponse.getMetadata() );
-        machinaryMgmtBaseApiResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            machinaryMgmtBaseApiResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            machinaryMgmtBaseApiResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        machinaryMgmtBaseApiResponse.metadata( baseApiResponse.getMetadata() );
+        machinaryMgmtBaseApiResponse.respType( baseApiResponse.getRespType() );
+        machinaryMgmtBaseApiResponse.status( baseApiResponse.getStatus() );
 
         return machinaryMgmtBaseApiResponse;
     }

@@ -16,8 +16,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-05-15T11:58:38+0530",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 23.0.2 (Oracle Corporation)"
+    date = "2025-05-26T16:53:18+0530",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.42.0.v20250514-1000, environment: Java 21.0.7 (Eclipse Adoptium)"
 )
 @Component
 public class ModelMapperImpl implements ModelMapper {
@@ -109,13 +109,13 @@ public class ModelMapperImpl implements ModelMapper {
 
         ModelListResponse modelListResponse = new ModelListResponse();
 
-        modelListResponse.setRespType( baseApiResponse.getRespType() );
-        modelListResponse.setMetadata( baseApiResponse.getMetadata() );
-        modelListResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            modelListResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            modelListResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        modelListResponse.metadata( baseApiResponse.getMetadata() );
+        modelListResponse.respType( baseApiResponse.getRespType() );
+        modelListResponse.status( baseApiResponse.getStatus() );
 
         return modelListResponse;
     }
@@ -128,13 +128,13 @@ public class ModelMapperImpl implements ModelMapper {
 
         ModelResponse modelResponse = new ModelResponse();
 
-        modelResponse.setRespType( baseApiResponse.getRespType() );
-        modelResponse.setMetadata( baseApiResponse.getMetadata() );
-        modelResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            modelResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            modelResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        modelResponse.metadata( baseApiResponse.getMetadata() );
+        modelResponse.respType( baseApiResponse.getRespType() );
+        modelResponse.status( baseApiResponse.getStatus() );
 
         return modelResponse;
     }

@@ -22,8 +22,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-05-15T11:58:37+0530",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 23.0.2 (Oracle Corporation)"
+    date = "2025-05-26T16:53:16+0530",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.42.0.v20250514-1000, environment: Java 21.0.7 (Eclipse Adoptium)"
 )
 @Component
 public class PettyCashTransactionMapperImpl implements PettyCashTransactionMapper {
@@ -81,21 +81,21 @@ public class PettyCashTransactionMapperImpl implements PettyCashTransactionMappe
 
         PettyCashTransaction.PettyCashTransactionBuilder pettyCashTransaction = PettyCashTransaction.builder();
 
-        pettyCashTransaction.reportDate( dto.getReportDate() );
+        if ( dto.getAmountSpent() != null ) {
+            pettyCashTransaction.amountSpent( BigDecimal.valueOf( dto.getAmountSpent() ) );
+        }
+        if ( dto.getCumulativeTotalAmount() != null ) {
+            pettyCashTransaction.cumulativeTotalAmount( BigDecimal.valueOf( dto.getCumulativeTotalAmount() ) );
+        }
+        pettyCashTransaction.purposeJustification( dto.getPurposeJustification() );
         if ( dto.getQuantity() != null ) {
             pettyCashTransaction.quantity( dto.getQuantity().intValue() );
         }
         if ( dto.getRate() != null ) {
             pettyCashTransaction.rate( BigDecimal.valueOf( dto.getRate() ) );
         }
-        if ( dto.getCumulativeTotalAmount() != null ) {
-            pettyCashTransaction.cumulativeTotalAmount( BigDecimal.valueOf( dto.getCumulativeTotalAmount() ) );
-        }
-        if ( dto.getAmountSpent() != null ) {
-            pettyCashTransaction.amountSpent( BigDecimal.valueOf( dto.getAmountSpent() ) );
-        }
-        pettyCashTransaction.purposeJustification( dto.getPurposeJustification() );
         pettyCashTransaction.remarks( dto.getRemarks() );
+        pettyCashTransaction.reportDate( dto.getReportDate() );
 
         return pettyCashTransaction.build();
     }
@@ -108,13 +108,13 @@ public class PettyCashTransactionMapperImpl implements PettyCashTransactionMappe
 
         PettyCashTransactionListResponse pettyCashTransactionListResponse = new PettyCashTransactionListResponse();
 
-        pettyCashTransactionListResponse.setRespType( baseApiResponse.getRespType() );
-        pettyCashTransactionListResponse.setMetadata( baseApiResponse.getMetadata() );
-        pettyCashTransactionListResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            pettyCashTransactionListResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            pettyCashTransactionListResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        pettyCashTransactionListResponse.metadata( baseApiResponse.getMetadata() );
+        pettyCashTransactionListResponse.respType( baseApiResponse.getRespType() );
+        pettyCashTransactionListResponse.status( baseApiResponse.getStatus() );
 
         return pettyCashTransactionListResponse;
     }
@@ -127,13 +127,13 @@ public class PettyCashTransactionMapperImpl implements PettyCashTransactionMappe
 
         PettyCashTransactionResponse pettyCashTransactionResponse = new PettyCashTransactionResponse();
 
-        pettyCashTransactionResponse.setRespType( baseApiResponse.getRespType() );
-        pettyCashTransactionResponse.setMetadata( baseApiResponse.getMetadata() );
-        pettyCashTransactionResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            pettyCashTransactionResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            pettyCashTransactionResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        pettyCashTransactionResponse.metadata( baseApiResponse.getMetadata() );
+        pettyCashTransactionResponse.respType( baseApiResponse.getRespType() );
+        pettyCashTransactionResponse.status( baseApiResponse.getStatus() );
 
         return pettyCashTransactionResponse;
     }
@@ -144,7 +144,19 @@ public class PettyCashTransactionMapperImpl implements PettyCashTransactionMappe
             return;
         }
 
-        transaction.setReportDate( dto.getReportDate() );
+        if ( dto.getAmountSpent() != null ) {
+            transaction.setAmountSpent( BigDecimal.valueOf( dto.getAmountSpent() ) );
+        }
+        else {
+            transaction.setAmountSpent( null );
+        }
+        if ( dto.getCumulativeTotalAmount() != null ) {
+            transaction.setCumulativeTotalAmount( BigDecimal.valueOf( dto.getCumulativeTotalAmount() ) );
+        }
+        else {
+            transaction.setCumulativeTotalAmount( null );
+        }
+        transaction.setPurposeJustification( dto.getPurposeJustification() );
         if ( dto.getQuantity() != null ) {
             transaction.setQuantity( dto.getQuantity().intValue() );
         }
@@ -157,20 +169,8 @@ public class PettyCashTransactionMapperImpl implements PettyCashTransactionMappe
         else {
             transaction.setRate( null );
         }
-        if ( dto.getCumulativeTotalAmount() != null ) {
-            transaction.setCumulativeTotalAmount( BigDecimal.valueOf( dto.getCumulativeTotalAmount() ) );
-        }
-        else {
-            transaction.setCumulativeTotalAmount( null );
-        }
-        if ( dto.getAmountSpent() != null ) {
-            transaction.setAmountSpent( BigDecimal.valueOf( dto.getAmountSpent() ) );
-        }
-        else {
-            transaction.setAmountSpent( null );
-        }
-        transaction.setPurposeJustification( dto.getPurposeJustification() );
         transaction.setRemarks( dto.getRemarks() );
+        transaction.setReportDate( dto.getReportDate() );
     }
 
     @Override
@@ -181,13 +181,13 @@ public class PettyCashTransactionMapperImpl implements PettyCashTransactionMappe
 
         MachinaryMgmtBaseApiResponse machinaryMgmtBaseApiResponse = new MachinaryMgmtBaseApiResponse();
 
-        machinaryMgmtBaseApiResponse.setRespType( baseApiResponse.getRespType() );
-        machinaryMgmtBaseApiResponse.setMetadata( baseApiResponse.getMetadata() );
-        machinaryMgmtBaseApiResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            machinaryMgmtBaseApiResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            machinaryMgmtBaseApiResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        machinaryMgmtBaseApiResponse.metadata( baseApiResponse.getMetadata() );
+        machinaryMgmtBaseApiResponse.respType( baseApiResponse.getRespType() );
+        machinaryMgmtBaseApiResponse.status( baseApiResponse.getStatus() );
 
         return machinaryMgmtBaseApiResponse;
     }

@@ -15,8 +15,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-05-15T11:58:38+0530",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 23.0.2 (Oracle Corporation)"
+    date = "2025-05-26T16:53:17+0530",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.42.0.v20250514-1000, environment: Java 21.0.7 (Eclipse Adoptium)"
 )
 @Component
 public class DepartmentMapperImpl implements DepartmentMapper {
@@ -72,8 +72,8 @@ public class DepartmentMapperImpl implements DepartmentMapper {
 
         Department.DepartmentBuilder department = Department.builder();
 
-        department.name( dto.getName() );
         department.description( dto.getDescription() );
+        department.name( dto.getName() );
 
         return department.build();
     }
@@ -84,9 +84,9 @@ public class DepartmentMapperImpl implements DepartmentMapper {
             return;
         }
 
+        department.setDescription( dto.getDescription() );
         department.setId( dto.getId() );
         department.setName( dto.getName() );
-        department.setDescription( dto.getDescription() );
     }
 
     @Override
@@ -95,8 +95,8 @@ public class DepartmentMapperImpl implements DepartmentMapper {
             return;
         }
 
-        department.setName( dto.getName() );
         department.setDescription( dto.getDescription() );
+        department.setName( dto.getName() );
     }
 
     @Override
@@ -107,13 +107,13 @@ public class DepartmentMapperImpl implements DepartmentMapper {
 
         DepartmentListResponse departmentListResponse = new DepartmentListResponse();
 
-        departmentListResponse.setRespType( baseApiResponse.getRespType() );
-        departmentListResponse.setMetadata( baseApiResponse.getMetadata() );
-        departmentListResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            departmentListResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            departmentListResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        departmentListResponse.metadata( baseApiResponse.getMetadata() );
+        departmentListResponse.respType( baseApiResponse.getRespType() );
+        departmentListResponse.status( baseApiResponse.getStatus() );
 
         return departmentListResponse;
     }
@@ -126,13 +126,13 @@ public class DepartmentMapperImpl implements DepartmentMapper {
 
         DepartmentResponse departmentResponse = new DepartmentResponse();
 
-        departmentResponse.setRespType( baseApiResponse.getRespType() );
-        departmentResponse.setMetadata( baseApiResponse.getMetadata() );
-        departmentResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            departmentResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            departmentResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        departmentResponse.metadata( baseApiResponse.getMetadata() );
+        departmentResponse.respType( baseApiResponse.getRespType() );
+        departmentResponse.status( baseApiResponse.getStatus() );
 
         return departmentResponse;
     }
@@ -145,13 +145,13 @@ public class DepartmentMapperImpl implements DepartmentMapper {
 
         MachinaryMgmtBaseApiResponse machinaryMgmtBaseApiResponse = new MachinaryMgmtBaseApiResponse();
 
-        machinaryMgmtBaseApiResponse.setRespType( baseApiResponse.getRespType() );
-        machinaryMgmtBaseApiResponse.setMetadata( baseApiResponse.getMetadata() );
-        machinaryMgmtBaseApiResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            machinaryMgmtBaseApiResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            machinaryMgmtBaseApiResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        machinaryMgmtBaseApiResponse.metadata( baseApiResponse.getMetadata() );
+        machinaryMgmtBaseApiResponse.respType( baseApiResponse.getRespType() );
+        machinaryMgmtBaseApiResponse.status( baseApiResponse.getStatus() );
 
         return machinaryMgmtBaseApiResponse;
     }

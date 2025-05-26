@@ -19,8 +19,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-05-15T11:58:38+0530",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 23.0.2 (Oracle Corporation)"
+    date = "2025-05-26T16:53:16+0530",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.42.0.v20250514-1000, environment: Java 21.0.7 (Eclipse Adoptium)"
 )
 @Component
 public class MaintenancePartUsedMapperImpl implements MaintenancePartUsedMapper {
@@ -76,13 +76,13 @@ public class MaintenancePartUsedMapperImpl implements MaintenancePartUsedMapper 
 
         MaintenancePartUsedListResponse maintenancePartUsedListResponse = new MaintenancePartUsedListResponse();
 
-        maintenancePartUsedListResponse.setRespType( baseApiResponse.getRespType() );
-        maintenancePartUsedListResponse.setMetadata( baseApiResponse.getMetadata() );
-        maintenancePartUsedListResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            maintenancePartUsedListResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            maintenancePartUsedListResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        maintenancePartUsedListResponse.metadata( baseApiResponse.getMetadata() );
+        maintenancePartUsedListResponse.respType( baseApiResponse.getRespType() );
+        maintenancePartUsedListResponse.status( baseApiResponse.getStatus() );
 
         return maintenancePartUsedListResponse;
     }
@@ -95,13 +95,13 @@ public class MaintenancePartUsedMapperImpl implements MaintenancePartUsedMapper 
 
         MaintenancePartUsedResponse maintenancePartUsedResponse = new MaintenancePartUsedResponse();
 
-        maintenancePartUsedResponse.setRespType( baseApiResponse.getRespType() );
-        maintenancePartUsedResponse.setMetadata( baseApiResponse.getMetadata() );
-        maintenancePartUsedResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            maintenancePartUsedResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            maintenancePartUsedResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        maintenancePartUsedResponse.metadata( baseApiResponse.getMetadata() );
+        maintenancePartUsedResponse.respType( baseApiResponse.getRespType() );
+        maintenancePartUsedResponse.status( baseApiResponse.getStatus() );
 
         return maintenancePartUsedResponse;
     }
@@ -114,13 +114,13 @@ public class MaintenancePartUsedMapperImpl implements MaintenancePartUsedMapper 
 
         MachinaryMgmtBaseApiResponse machinaryMgmtBaseApiResponse = new MachinaryMgmtBaseApiResponse();
 
-        machinaryMgmtBaseApiResponse.setRespType( baseApiResponse.getRespType() );
-        machinaryMgmtBaseApiResponse.setMetadata( baseApiResponse.getMetadata() );
-        machinaryMgmtBaseApiResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            machinaryMgmtBaseApiResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            machinaryMgmtBaseApiResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        machinaryMgmtBaseApiResponse.metadata( baseApiResponse.getMetadata() );
+        machinaryMgmtBaseApiResponse.respType( baseApiResponse.getRespType() );
+        machinaryMgmtBaseApiResponse.status( baseApiResponse.getStatus() );
 
         return machinaryMgmtBaseApiResponse;
     }

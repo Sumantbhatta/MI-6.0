@@ -47,6 +47,7 @@ com\machinarymgmt\service\api\data\MachineryMaintenanceLogRepository.class
 com\machinarymgmt\service\api\config\dto\Metadata.class
 com\machinarymgmt\service\dto\IncidentReportRequestDto$IncidentTypeEnum.class
 com\machinarymgmt\service\api\data\model\PettyCashTransaction.class
+com\machinarymgmt\service\api\components\DataInitializer.class
 com\machinarymgmt\service\api\data\model\StockStatement$StockStatementBuilder.class
 com\machinarymgmt\service\api\service\MastAnchorageDetailsService.class
 com\machinarymgmt\service\dto\ProjectDto.class

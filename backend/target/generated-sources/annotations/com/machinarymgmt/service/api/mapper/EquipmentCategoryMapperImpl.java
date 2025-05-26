@@ -15,8 +15,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-05-15T11:58:38+0530",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 23.0.2 (Oracle Corporation)"
+    date = "2025-05-26T16:53:16+0530",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.42.0.v20250514-1000, environment: Java 21.0.7 (Eclipse Adoptium)"
 )
 @Component
 public class EquipmentCategoryMapperImpl implements EquipmentCategoryMapper {
@@ -70,13 +70,13 @@ public class EquipmentCategoryMapperImpl implements EquipmentCategoryMapper {
 
         MachinaryMgmtBaseApiResponse machinaryMgmtBaseApiResponse = new MachinaryMgmtBaseApiResponse();
 
-        machinaryMgmtBaseApiResponse.setRespType( baseApiResponse.getRespType() );
-        machinaryMgmtBaseApiResponse.setMetadata( baseApiResponse.getMetadata() );
-        machinaryMgmtBaseApiResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            machinaryMgmtBaseApiResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            machinaryMgmtBaseApiResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        machinaryMgmtBaseApiResponse.metadata( baseApiResponse.getMetadata() );
+        machinaryMgmtBaseApiResponse.respType( baseApiResponse.getRespType() );
+        machinaryMgmtBaseApiResponse.status( baseApiResponse.getStatus() );
 
         return machinaryMgmtBaseApiResponse;
     }
@@ -89,13 +89,13 @@ public class EquipmentCategoryMapperImpl implements EquipmentCategoryMapper {
 
         EquipmentCategoryListResponse equipmentCategoryListResponse = new EquipmentCategoryListResponse();
 
-        equipmentCategoryListResponse.setRespType( baseApiResponse.getRespType() );
-        equipmentCategoryListResponse.setMetadata( baseApiResponse.getMetadata() );
-        equipmentCategoryListResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            equipmentCategoryListResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            equipmentCategoryListResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        equipmentCategoryListResponse.metadata( baseApiResponse.getMetadata() );
+        equipmentCategoryListResponse.respType( baseApiResponse.getRespType() );
+        equipmentCategoryListResponse.status( baseApiResponse.getStatus() );
 
         return equipmentCategoryListResponse;
     }
@@ -108,13 +108,13 @@ public class EquipmentCategoryMapperImpl implements EquipmentCategoryMapper {
 
         EquipmentCategoryResponse equipmentCategoryResponse = new EquipmentCategoryResponse();
 
-        equipmentCategoryResponse.setRespType( baseApiResponse.getRespType() );
-        equipmentCategoryResponse.setMetadata( baseApiResponse.getMetadata() );
-        equipmentCategoryResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            equipmentCategoryResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            equipmentCategoryResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        equipmentCategoryResponse.metadata( baseApiResponse.getMetadata() );
+        equipmentCategoryResponse.respType( baseApiResponse.getRespType() );
+        equipmentCategoryResponse.status( baseApiResponse.getStatus() );
 
         return equipmentCategoryResponse;
     }

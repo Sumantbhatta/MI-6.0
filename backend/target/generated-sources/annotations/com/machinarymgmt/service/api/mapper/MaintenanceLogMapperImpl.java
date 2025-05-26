@@ -17,8 +17,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-05-15T11:58:38+0530",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 23.0.2 (Oracle Corporation)"
+    date = "2025-05-26T16:53:17+0530",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.42.0.v20250514-1000, environment: Java 21.0.7 (Eclipse Adoptium)"
 )
 @Component
 public class MaintenanceLogMapperImpl implements MaintenanceLogMapper {
@@ -81,28 +81,28 @@ public class MaintenanceLogMapperImpl implements MaintenanceLogMapper {
 
         MachineryMaintenanceLog.MachineryMaintenanceLogBuilder machineryMaintenanceLog = MachineryMaintenanceLog.builder();
 
-        machineryMaintenanceLog.date( dto.getDate() );
-        if ( dto.getStartReading() != null ) {
-            machineryMaintenanceLog.startReading( dto.getStartReading().intValue() );
-        }
-        if ( dto.getCloseReading() != null ) {
-            machineryMaintenanceLog.closeReading( dto.getCloseReading().intValue() );
-        }
-        if ( dto.getServiceHours() != null ) {
-            machineryMaintenanceLog.serviceHours( dto.getServiceHours().intValue() );
-        }
-        machineryMaintenanceLog.serviceDate( dto.getServiceDate() );
         if ( dto.getBalanceForService() != null ) {
             machineryMaintenanceLog.balanceForService( dto.getBalanceForService().intValue() );
         }
-        machineryMaintenanceLog.purposeActivities( dto.getPurposeActivities() );
-        machineryMaintenanceLog.typeOfMaintenance( dto.getTypeOfMaintenance() );
         machineryMaintenanceLog.breakdownSynopsis( dto.getBreakdownSynopsis() );
+        if ( dto.getCloseReading() != null ) {
+            machineryMaintenanceLog.closeReading( dto.getCloseReading().intValue() );
+        }
+        machineryMaintenanceLog.date( dto.getDate() );
+        machineryMaintenanceLog.feedback( dto.getFeedback() );
+        machineryMaintenanceLog.maintenanceSignature( dto.getMaintenanceSignature() );
         machineryMaintenanceLog.operatorName( dto.getOperatorName() );
         machineryMaintenanceLog.operatorSignature( dto.getOperatorSignature() );
-        machineryMaintenanceLog.maintenanceSignature( dto.getMaintenanceSignature() );
-        machineryMaintenanceLog.feedback( dto.getFeedback() );
+        machineryMaintenanceLog.purposeActivities( dto.getPurposeActivities() );
         machineryMaintenanceLog.remarks( dto.getRemarks() );
+        machineryMaintenanceLog.serviceDate( dto.getServiceDate() );
+        if ( dto.getServiceHours() != null ) {
+            machineryMaintenanceLog.serviceHours( dto.getServiceHours().intValue() );
+        }
+        if ( dto.getStartReading() != null ) {
+            machineryMaintenanceLog.startReading( dto.getStartReading().intValue() );
+        }
+        machineryMaintenanceLog.typeOfMaintenance( dto.getTypeOfMaintenance() );
 
         return machineryMaintenanceLog.build();
     }
@@ -113,40 +113,40 @@ public class MaintenanceLogMapperImpl implements MaintenanceLogMapper {
             return;
         }
 
-        log.setDate( dto.getDate() );
-        if ( dto.getStartReading() != null ) {
-            log.setStartReading( dto.getStartReading().intValue() );
-        }
-        else {
-            log.setStartReading( null );
-        }
-        if ( dto.getCloseReading() != null ) {
-            log.setCloseReading( dto.getCloseReading().intValue() );
-        }
-        else {
-            log.setCloseReading( null );
-        }
-        if ( dto.getServiceHours() != null ) {
-            log.setServiceHours( dto.getServiceHours().intValue() );
-        }
-        else {
-            log.setServiceHours( null );
-        }
-        log.setServiceDate( dto.getServiceDate() );
         if ( dto.getBalanceForService() != null ) {
             log.setBalanceForService( dto.getBalanceForService().intValue() );
         }
         else {
             log.setBalanceForService( null );
         }
-        log.setPurposeActivities( dto.getPurposeActivities() );
-        log.setTypeOfMaintenance( dto.getTypeOfMaintenance() );
         log.setBreakdownSynopsis( dto.getBreakdownSynopsis() );
+        if ( dto.getCloseReading() != null ) {
+            log.setCloseReading( dto.getCloseReading().intValue() );
+        }
+        else {
+            log.setCloseReading( null );
+        }
+        log.setDate( dto.getDate() );
+        log.setFeedback( dto.getFeedback() );
+        log.setMaintenanceSignature( dto.getMaintenanceSignature() );
         log.setOperatorName( dto.getOperatorName() );
         log.setOperatorSignature( dto.getOperatorSignature() );
-        log.setMaintenanceSignature( dto.getMaintenanceSignature() );
-        log.setFeedback( dto.getFeedback() );
+        log.setPurposeActivities( dto.getPurposeActivities() );
         log.setRemarks( dto.getRemarks() );
+        log.setServiceDate( dto.getServiceDate() );
+        if ( dto.getServiceHours() != null ) {
+            log.setServiceHours( dto.getServiceHours().intValue() );
+        }
+        else {
+            log.setServiceHours( null );
+        }
+        if ( dto.getStartReading() != null ) {
+            log.setStartReading( dto.getStartReading().intValue() );
+        }
+        else {
+            log.setStartReading( null );
+        }
+        log.setTypeOfMaintenance( dto.getTypeOfMaintenance() );
     }
 
     @Override
@@ -157,13 +157,13 @@ public class MaintenanceLogMapperImpl implements MaintenanceLogMapper {
 
         MaintenanceLogListResponse maintenanceLogListResponse = new MaintenanceLogListResponse();
 
-        maintenanceLogListResponse.setRespType( baseApiResponse.getRespType() );
-        maintenanceLogListResponse.setMetadata( baseApiResponse.getMetadata() );
-        maintenanceLogListResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            maintenanceLogListResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            maintenanceLogListResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        maintenanceLogListResponse.metadata( baseApiResponse.getMetadata() );
+        maintenanceLogListResponse.respType( baseApiResponse.getRespType() );
+        maintenanceLogListResponse.status( baseApiResponse.getStatus() );
 
         return maintenanceLogListResponse;
     }
@@ -176,13 +176,13 @@ public class MaintenanceLogMapperImpl implements MaintenanceLogMapper {
 
         MaintenanceLogResponse maintenanceLogResponse = new MaintenanceLogResponse();
 
-        maintenanceLogResponse.setRespType( baseApiResponse.getRespType() );
-        maintenanceLogResponse.setMetadata( baseApiResponse.getMetadata() );
-        maintenanceLogResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            maintenanceLogResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            maintenanceLogResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        maintenanceLogResponse.metadata( baseApiResponse.getMetadata() );
+        maintenanceLogResponse.respType( baseApiResponse.getRespType() );
+        maintenanceLogResponse.status( baseApiResponse.getStatus() );
 
         return maintenanceLogResponse;
     }
@@ -195,13 +195,13 @@ public class MaintenanceLogMapperImpl implements MaintenanceLogMapper {
 
         MachinaryMgmtBaseApiResponse machinaryMgmtBaseApiResponse = new MachinaryMgmtBaseApiResponse();
 
-        machinaryMgmtBaseApiResponse.setRespType( baseApiResponse.getRespType() );
-        machinaryMgmtBaseApiResponse.setMetadata( baseApiResponse.getMetadata() );
-        machinaryMgmtBaseApiResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            machinaryMgmtBaseApiResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            machinaryMgmtBaseApiResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        machinaryMgmtBaseApiResponse.metadata( baseApiResponse.getMetadata() );
+        machinaryMgmtBaseApiResponse.respType( baseApiResponse.getRespType() );
+        machinaryMgmtBaseApiResponse.status( baseApiResponse.getStatus() );
 
         return machinaryMgmtBaseApiResponse;
     }

@@ -21,8 +21,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-05-15T11:58:38+0530",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 23.0.2 (Oracle Corporation)"
+    date = "2025-05-26T16:53:17+0530",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.42.0.v20250514-1000, environment: Java 21.0.7 (Eclipse Adoptium)"
 )
 @Component
 public class EquipmentMapperImpl implements EquipmentMapper {
@@ -69,8 +69,8 @@ public class EquipmentMapperImpl implements EquipmentMapper {
 
         Equipment.EquipmentBuilder equipment = Equipment.builder();
 
-        equipment.name( dto.getName() );
         equipment.assetCode( dto.getAssetCode() );
+        equipment.name( dto.getName() );
         equipment.vehicleNumber( dto.getVehicleNumber() );
         equipment.yearOfManufacture( dto.getYearOfManufacture() );
 
@@ -83,8 +83,8 @@ public class EquipmentMapperImpl implements EquipmentMapper {
             return;
         }
 
-        equipment.setName( dto.getName() );
         equipment.setAssetCode( dto.getAssetCode() );
+        equipment.setName( dto.getName() );
         equipment.setVehicleNumber( dto.getVehicleNumber() );
         equipment.setYearOfManufacture( dto.getYearOfManufacture() );
     }
@@ -97,13 +97,13 @@ public class EquipmentMapperImpl implements EquipmentMapper {
 
         EquipmentListResponse equipmentListResponse = new EquipmentListResponse();
 
-        equipmentListResponse.setRespType( baseApiResponse.getRespType() );
-        equipmentListResponse.setMetadata( baseApiResponse.getMetadata() );
-        equipmentListResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            equipmentListResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            equipmentListResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        equipmentListResponse.metadata( baseApiResponse.getMetadata() );
+        equipmentListResponse.respType( baseApiResponse.getRespType() );
+        equipmentListResponse.status( baseApiResponse.getStatus() );
 
         return equipmentListResponse;
     }
@@ -116,13 +116,13 @@ public class EquipmentMapperImpl implements EquipmentMapper {
 
         EquipmentResponse equipmentResponse = new EquipmentResponse();
 
-        equipmentResponse.setRespType( baseApiResponse.getRespType() );
-        equipmentResponse.setMetadata( baseApiResponse.getMetadata() );
-        equipmentResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            equipmentResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            equipmentResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        equipmentResponse.metadata( baseApiResponse.getMetadata() );
+        equipmentResponse.respType( baseApiResponse.getRespType() );
+        equipmentResponse.status( baseApiResponse.getStatus() );
 
         return equipmentResponse;
     }
@@ -135,13 +135,13 @@ public class EquipmentMapperImpl implements EquipmentMapper {
 
         MachinaryMgmtBaseApiResponse machinaryMgmtBaseApiResponse = new MachinaryMgmtBaseApiResponse();
 
-        machinaryMgmtBaseApiResponse.setRespType( baseApiResponse.getRespType() );
-        machinaryMgmtBaseApiResponse.setMetadata( baseApiResponse.getMetadata() );
-        machinaryMgmtBaseApiResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            machinaryMgmtBaseApiResponse.setMessages( new ArrayList<ApiMessage>( list ) );
+            machinaryMgmtBaseApiResponse.messages( new ArrayList<ApiMessage>( list ) );
         }
+        machinaryMgmtBaseApiResponse.metadata( baseApiResponse.getMetadata() );
+        machinaryMgmtBaseApiResponse.respType( baseApiResponse.getRespType() );
+        machinaryMgmtBaseApiResponse.status( baseApiResponse.getStatus() );
 
         return machinaryMgmtBaseApiResponse;
     }
