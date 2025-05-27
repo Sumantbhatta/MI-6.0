@@ -6,34 +6,32 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Checkbox } from '@mui/material';
+import { useSettings } from '@/contexts/SettingsContext';
+import { toast } from 'react-hot-toast';
 
 export default function SettingsPage() {
-  const [notifications, setNotifications] = useState({
-    email: true,
-    push: false,
-    sms: false,
-    weekly: true,
-    marketing: false
-  });
+  const { settings, updateNotificationSettings, updateAppearanceSettings } = useSettings();
+  const [isSaving, setIsSaving] = useState(false);
 
-  const [appearance, setAppearance] = useState({
-    darkMode: false,
-    compactView: true,
-    highContrast: false
-  });
-
-  const handleNotificationChange = (key: keyof typeof notifications) => {
-    setNotifications(prev => ({
-      ...prev,
-      [key]: !prev[key]
-    }));
+  const handleNotificationChange = (key: keyof typeof settings.notifications) => {
+    updateNotificationSettings(key, !settings.notifications[key]);
   };
 
-  const handleAppearanceChange = (key: keyof typeof appearance) => {
-    setAppearance(prev => ({
-      ...prev,
-      [key]: !prev[key]
-    }));
+  const handleAppearanceChange = (key: keyof typeof settings.appearance) => {
+    updateAppearanceSettings(key, !settings.appearance[key]);
+  };
+
+  const handleSaveSettings = async (type: 'notifications' | 'appearance') => {
+    setIsSaving(true);
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      toast.success(`${type === 'notifications' ? 'Notification' : 'Appearance'} settings saved successfully!`);
+    } catch (error) {
+      toast.error('Failed to save settings. Please try again.');
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   return (
@@ -42,7 +40,7 @@ export default function SettingsPage() {
       
       <Tabs defaultValue="notifications" className="w-full">
         <TabsList className="grid w-full md:w-[400px] grid-cols-2">
-          <TabsTrigger value="notifications ">Notifications</TabsTrigger>
+          <TabsTrigger value="notifications">Notifications</TabsTrigger>
           <TabsTrigger value="appearance">Appearance</TabsTrigger>
         </TabsList>
         
@@ -62,7 +60,7 @@ export default function SettingsPage() {
                 </Label>
                 <Checkbox 
                   id="email-notifications" 
-                  checked={notifications.email} 
+                  checked={settings.notifications.email} 
                   onChange={() => handleNotificationChange('email')} 
                 />
               </div>
@@ -74,7 +72,7 @@ export default function SettingsPage() {
                 </Label>
                 <Checkbox 
                   id="push-notifications" 
-                  checked={notifications.push} 
+                  checked={settings.notifications.push} 
                   onChange={() => handleNotificationChange('push')} 
                 />
               </div>
@@ -86,7 +84,7 @@ export default function SettingsPage() {
                 </Label>
                 <Checkbox 
                   id="sms-notifications" 
-                  checked={notifications.sms} 
+                  checked={settings.notifications.sms} 
                   onChange={() => handleNotificationChange('sms')} 
                 />
               </div>
@@ -98,7 +96,7 @@ export default function SettingsPage() {
                 </Label>
                 <Checkbox 
                   id="weekly-digest" 
-                  checked={notifications.weekly} 
+                  checked={settings.notifications.weekly} 
                   onChange={() => handleNotificationChange('weekly')} 
                 />
               </div>
@@ -110,13 +108,18 @@ export default function SettingsPage() {
                 </Label>
                 <Checkbox 
                   id="marketing-emails" 
-                  checked={notifications.marketing} 
+                  checked={settings.notifications.marketing} 
                   onChange={() => handleNotificationChange('marketing')} 
                 />
               </div>
             </CardContent>
             <CardFooter>
-              <Button>Save Notification Settings</Button>
+              <Button 
+                onClick={() => handleSaveSettings('notifications')}
+                disabled={isSaving}
+              >
+                {isSaving ? 'Saving...' : 'Save Notification Settings'}
+              </Button>
             </CardFooter>
           </Card>
         </TabsContent>
@@ -137,7 +140,7 @@ export default function SettingsPage() {
                 </Label>
                 <Checkbox 
                   id="dark-mode" 
-                  checked={appearance.darkMode} 
+                  checked={settings.appearance.darkMode} 
                   onChange={() => handleAppearanceChange('darkMode')} 
                 />
               </div>
@@ -149,25 +152,18 @@ export default function SettingsPage() {
                 </Label>
                 <Checkbox 
                   id="compact-view" 
-                  checked={appearance.compactView} 
+                  checked={settings.appearance.compactView} 
                   onChange={() => handleAppearanceChange('compactView')} 
-                />
-              </div>
-              
-              <div className="flex items-center justify-between">
-                <Label htmlFor="high-contrast" className="flex flex-col space-y-1">
-                  <span>High Contrast</span>
-                  <span className="text-sm text-gray-500">Increase contrast for better visibility</span>
-                </Label>
-                <Checkbox 
-                  id="high-contrast" 
-                  checked={appearance.highContrast} 
-                  onChange={() => handleAppearanceChange('highContrast')} 
                 />
               </div>
             </CardContent>
             <CardFooter>
-              <Button>Save Appearance Settings</Button>
+              <Button 
+                onClick={() => handleSaveSettings('appearance')}
+                disabled={isSaving}
+              >
+                {isSaving ? 'Saving...' : 'Save Appearance Settings'}
+              </Button>
             </CardFooter>
           </Card>
         </TabsContent>

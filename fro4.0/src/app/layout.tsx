@@ -11,6 +11,7 @@ import { theme } from '@/theme';
 import { Toaster } from 'react-hot-toast';
 import { AuthProvider } from '@/contexts/AuthContext';
 import { usePathname, useSelectedLayoutSegments } from 'next/navigation';
+import { SettingsProvider } from '@/contexts/SettingsContext';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -76,10 +77,12 @@ export default function RootLayout({
           <ThemeProvider theme={theme}>
             <CssBaseline />
             <AuthProvider>
-              <LayoutWrapper>
-                {children}
-              </LayoutWrapper>
-              <Toaster position="top-right" />
+              <SettingsProvider>
+                <LayoutWrapper>
+                  {children}
+                </LayoutWrapper>
+                <Toaster position="top-right" />
+              </SettingsProvider>
             </AuthProvider>
           </ThemeProvider>
         </QueryClientProvider>

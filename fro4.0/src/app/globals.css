@@ -75,14 +75,12 @@
 @layer base {
   * {
     @apply border-border;
-    border-color: hsl(var(--border));
   }
   body {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
-    font-feature-settings: "rlig" 1, "calt" 1;
+    @apply bg-background text-foreground;
   }
 }
+
 @theme{
   --color-primary: #2b2b2b;
   --color-accent: #ffbd2b;
@@ -100,4 +98,59 @@
 .perspective-1000 {
   perspective: 1000px;
   transform-style: preserve-3d;
+}
+
+/* Dark Mode Styles */
+.dark {
+  @apply bg-gray-900 text-white;
+}
+
+.dark .bg-white {
+  @apply bg-gray-800;
+}
+
+.dark .text-gray-500 {
+  @apply text-gray-400;
+}
+
+.dark .text-gray-700 {
+  @apply text-gray-300;
+}
+
+.dark .border-gray-200 {
+  @apply border-gray-700;
+}
+
+.dark .bg-gray-50 {
+  @apply bg-gray-800;
+}
+
+.dark .bg-gray-100 {
+  @apply bg-gray-700;
+}
+
+/* Compact View Styles */
+.compact-view .space-y-4 {
+  @apply space-y-2;
+}
+
+.compact-view .p-6 {
+  @apply p-4;
+}
+
+.compact-view .text-lg {
+  @apply text-base;
+}
+
+.compact-view .text-2xl {
+  @apply text-xl;
+}
+
+/* Toast Notifications */
+.toast-success {
+  @apply bg-green-500 text-white;
+}
+
+.toast-error {
+  @apply bg-red-500 text-white;
 }
