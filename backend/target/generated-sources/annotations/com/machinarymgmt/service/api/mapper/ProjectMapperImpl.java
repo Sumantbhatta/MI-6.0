@@ -17,8 +17,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-05-26T16:53:16+0530",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.42.0.v20250514-1000, environment: Java 21.0.7 (Eclipse Adoptium)"
+    date = "2025-05-27T12:16:19+0530",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.1 (Oracle Corporation)"
 )
 @Component
 public class ProjectMapperImpl implements ProjectMapper {
@@ -90,14 +90,14 @@ public class ProjectMapperImpl implements ProjectMapper {
 
         Project.ProjectBuilder project = Project.builder();
 
-        project.description( dto.getDescription() );
-        if ( dto.getEndDate() != null ) {
-            project.endDate( DateTimeFormatter.ISO_LOCAL_DATE.format( dto.getEndDate() ) );
-        }
-        project.location( dto.getLocation() );
         project.name( dto.getName() );
+        project.location( dto.getLocation() );
+        project.description( dto.getDescription() );
         if ( dto.getStartDate() != null ) {
             project.startDate( DateTimeFormatter.ISO_LOCAL_DATE.format( dto.getStartDate() ) );
+        }
+        if ( dto.getEndDate() != null ) {
+            project.endDate( DateTimeFormatter.ISO_LOCAL_DATE.format( dto.getEndDate() ) );
         }
         project.status( dto.getStatus() );
 
@@ -110,20 +110,20 @@ public class ProjectMapperImpl implements ProjectMapper {
             return;
         }
 
-        project.setDescription( dto.getDescription() );
-        if ( dto.getEndDate() != null ) {
-            project.setEndDate( DateTimeFormatter.ISO_LOCAL_DATE.format( dto.getEndDate() ) );
-        }
-        else {
-            project.setEndDate( null );
-        }
-        project.setLocation( dto.getLocation() );
         project.setName( dto.getName() );
+        project.setLocation( dto.getLocation() );
+        project.setDescription( dto.getDescription() );
         if ( dto.getStartDate() != null ) {
             project.setStartDate( DateTimeFormatter.ISO_LOCAL_DATE.format( dto.getStartDate() ) );
         }
         else {
             project.setStartDate( null );
+        }
+        if ( dto.getEndDate() != null ) {
+            project.setEndDate( DateTimeFormatter.ISO_LOCAL_DATE.format( dto.getEndDate() ) );
+        }
+        else {
+            project.setEndDate( null );
         }
         project.setStatus( dto.getStatus() );
     }
@@ -136,13 +136,13 @@ public class ProjectMapperImpl implements ProjectMapper {
 
         ProjectListResponse projectListResponse = new ProjectListResponse();
 
+        projectListResponse.setRespType( baseApiResponse.getRespType() );
+        projectListResponse.setMetadata( baseApiResponse.getMetadata() );
+        projectListResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            projectListResponse.messages( new ArrayList<ApiMessage>( list ) );
+            projectListResponse.setMessages( new ArrayList<ApiMessage>( list ) );
         }
-        projectListResponse.metadata( baseApiResponse.getMetadata() );
-        projectListResponse.respType( baseApiResponse.getRespType() );
-        projectListResponse.status( baseApiResponse.getStatus() );
 
         return projectListResponse;
     }
@@ -155,13 +155,13 @@ public class ProjectMapperImpl implements ProjectMapper {
 
         ProjectResponse projectResponse = new ProjectResponse();
 
+        projectResponse.setRespType( baseApiResponse.getRespType() );
+        projectResponse.setMetadata( baseApiResponse.getMetadata() );
+        projectResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            projectResponse.messages( new ArrayList<ApiMessage>( list ) );
+            projectResponse.setMessages( new ArrayList<ApiMessage>( list ) );
         }
-        projectResponse.metadata( baseApiResponse.getMetadata() );
-        projectResponse.respType( baseApiResponse.getRespType() );
-        projectResponse.status( baseApiResponse.getStatus() );
 
         return projectResponse;
     }
@@ -174,13 +174,13 @@ public class ProjectMapperImpl implements ProjectMapper {
 
         MachinaryMgmtBaseApiResponse machinaryMgmtBaseApiResponse = new MachinaryMgmtBaseApiResponse();
 
+        machinaryMgmtBaseApiResponse.setRespType( baseApiResponse.getRespType() );
+        machinaryMgmtBaseApiResponse.setMetadata( baseApiResponse.getMetadata() );
+        machinaryMgmtBaseApiResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            machinaryMgmtBaseApiResponse.messages( new ArrayList<ApiMessage>( list ) );
+            machinaryMgmtBaseApiResponse.setMessages( new ArrayList<ApiMessage>( list ) );
         }
-        machinaryMgmtBaseApiResponse.metadata( baseApiResponse.getMetadata() );
-        machinaryMgmtBaseApiResponse.respType( baseApiResponse.getRespType() );
-        machinaryMgmtBaseApiResponse.status( baseApiResponse.getStatus() );
 
         return machinaryMgmtBaseApiResponse;
     }

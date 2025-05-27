@@ -22,8 +22,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-05-26T16:53:16+0530",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.42.0.v20250514-1000, environment: Java 21.0.7 (Eclipse Adoptium)"
+    date = "2025-05-27T12:16:20+0530",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.1 (Oracle Corporation)"
 )
 @Component
 public class MaterialsConsumptionTransactionMapperImpl implements MaterialsConsumptionTransactionMapper {
@@ -75,15 +75,15 @@ public class MaterialsConsumptionTransactionMapperImpl implements MaterialsConsu
 
         MaterialsConsumptionTransaction.MaterialsConsumptionTransactionBuilder materialsConsumptionTransaction = MaterialsConsumptionTransaction.builder();
 
+        materialsConsumptionTransaction.issueDate( request.getIssueDate() );
+        materialsConsumptionTransaction.quantity( request.getQuantity() );
         if ( request.getCostPerUnit() != null ) {
             materialsConsumptionTransaction.costPerUnit( BigDecimal.valueOf( request.getCostPerUnit() ) );
         }
-        materialsConsumptionTransaction.issueDate( request.getIssueDate() );
-        materialsConsumptionTransaction.quantity( request.getQuantity() );
-        materialsConsumptionTransaction.remarks( request.getRemarks() );
         if ( request.getTotalCost() != null ) {
             materialsConsumptionTransaction.totalCost( BigDecimal.valueOf( request.getTotalCost() ) );
         }
+        materialsConsumptionTransaction.remarks( request.getRemarks() );
 
         return materialsConsumptionTransaction.build();
     }
@@ -94,21 +94,21 @@ public class MaterialsConsumptionTransactionMapperImpl implements MaterialsConsu
             return;
         }
 
+        transaction.setIssueDate( request.getIssueDate() );
+        transaction.setQuantity( request.getQuantity() );
         if ( request.getCostPerUnit() != null ) {
             transaction.setCostPerUnit( BigDecimal.valueOf( request.getCostPerUnit() ) );
         }
         else {
             transaction.setCostPerUnit( null );
         }
-        transaction.setIssueDate( request.getIssueDate() );
-        transaction.setQuantity( request.getQuantity() );
-        transaction.setRemarks( request.getRemarks() );
         if ( request.getTotalCost() != null ) {
             transaction.setTotalCost( BigDecimal.valueOf( request.getTotalCost() ) );
         }
         else {
             transaction.setTotalCost( null );
         }
+        transaction.setRemarks( request.getRemarks() );
     }
 
     @Override
@@ -119,13 +119,13 @@ public class MaterialsConsumptionTransactionMapperImpl implements MaterialsConsu
 
         MaterialsConsumptionTransactionListResponse materialsConsumptionTransactionListResponse = new MaterialsConsumptionTransactionListResponse();
 
+        materialsConsumptionTransactionListResponse.setRespType( baseApiResponse.getRespType() );
+        materialsConsumptionTransactionListResponse.setMetadata( baseApiResponse.getMetadata() );
+        materialsConsumptionTransactionListResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            materialsConsumptionTransactionListResponse.messages( new ArrayList<ApiMessage>( list ) );
+            materialsConsumptionTransactionListResponse.setMessages( new ArrayList<ApiMessage>( list ) );
         }
-        materialsConsumptionTransactionListResponse.metadata( baseApiResponse.getMetadata() );
-        materialsConsumptionTransactionListResponse.respType( baseApiResponse.getRespType() );
-        materialsConsumptionTransactionListResponse.status( baseApiResponse.getStatus() );
 
         return materialsConsumptionTransactionListResponse;
     }
@@ -138,13 +138,13 @@ public class MaterialsConsumptionTransactionMapperImpl implements MaterialsConsu
 
         MachinaryMgmtBaseApiResponse machinaryMgmtBaseApiResponse = new MachinaryMgmtBaseApiResponse();
 
+        machinaryMgmtBaseApiResponse.setRespType( baseApiResponse.getRespType() );
+        machinaryMgmtBaseApiResponse.setMetadata( baseApiResponse.getMetadata() );
+        machinaryMgmtBaseApiResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            machinaryMgmtBaseApiResponse.messages( new ArrayList<ApiMessage>( list ) );
+            machinaryMgmtBaseApiResponse.setMessages( new ArrayList<ApiMessage>( list ) );
         }
-        machinaryMgmtBaseApiResponse.metadata( baseApiResponse.getMetadata() );
-        machinaryMgmtBaseApiResponse.respType( baseApiResponse.getRespType() );
-        machinaryMgmtBaseApiResponse.status( baseApiResponse.getStatus() );
 
         return machinaryMgmtBaseApiResponse;
     }
@@ -157,13 +157,13 @@ public class MaterialsConsumptionTransactionMapperImpl implements MaterialsConsu
 
         MaterialsConsumptionTransactionResponse materialsConsumptionTransactionResponse = new MaterialsConsumptionTransactionResponse();
 
+        materialsConsumptionTransactionResponse.setRespType( baseApiResponse.getRespType() );
+        materialsConsumptionTransactionResponse.setMetadata( baseApiResponse.getMetadata() );
+        materialsConsumptionTransactionResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            materialsConsumptionTransactionResponse.messages( new ArrayList<ApiMessage>( list ) );
+            materialsConsumptionTransactionResponse.setMessages( new ArrayList<ApiMessage>( list ) );
         }
-        materialsConsumptionTransactionResponse.metadata( baseApiResponse.getMetadata() );
-        materialsConsumptionTransactionResponse.respType( baseApiResponse.getRespType() );
-        materialsConsumptionTransactionResponse.status( baseApiResponse.getStatus() );
 
         return materialsConsumptionTransactionResponse;
     }

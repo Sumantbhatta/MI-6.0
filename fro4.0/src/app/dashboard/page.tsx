@@ -29,6 +29,7 @@ import overtimeReportService from '@/services/overtimeReportService';
 import pettyCashService from '@/services/pettyCashService';
 import materialsConsumptionService from '@/services/materialsConsumptionService';
 import { Users, Briefcase, Wrench, Clock, DollarSign, Truck } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 // Update type definitions
 interface MonthlyData {
@@ -69,6 +70,7 @@ export default function Home() {
 
 // Extracted dashboard content for clarity
 function DashboardContent() {
+  const router = useRouter();
   // Set query options for refreshing data
   const queryOptions = {
     refetchOnWindowFocus: true,
@@ -331,65 +333,77 @@ function DashboardContent() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
         {/* Total Equipment card */}
-        <StatCardModern
-          title="Total Equipment"
-          value={equipment && equipment.length ? equipment.length : 2}
-          icon={<Truck className="h-5 w-5" />}
-          colorClass="bg-orange-50"
-          change={5}
-          changeType="increase"
-          subtext="since last month"
-        />
+        <div onClick={() => router.push('/equipment')} className="cursor-pointer">
+          <StatCardModern
+            title="Total Equipment"
+            value={equipment && equipment.length ? equipment.length : 2}
+            icon={<Truck className="h-5 w-5" />}
+            colorClass="bg-orange-50"
+            change={5}
+            changeType="increase"
+            subtext="since last month"
+          />
+        </div>
         {/* Active Projects card */}
-        <StatCardModern
-          title="Active Projects"
-          value={activeProjects}
-          icon={<Briefcase className="h-5 w-5" />}
-          colorClass="bg-blue-50"
-          change={2}
-          changeType="increase"
-          subtext="since last month"
-        />
+        <div onClick={() => router.push('/projects')} className="cursor-pointer">
+          <StatCardModern
+            title="Active Projects"
+            value={activeProjects}
+            icon={<Briefcase className="h-5 w-5" />}
+            colorClass="bg-blue-50"
+            change={2}
+            changeType="increase"
+            subtext="since last month"
+          />
+        </div>
         {/* Total Employees card */}
-        <StatCardModern
-          title="Total Employees"
-          value={employees && employees.length ? employees.length : 2}
-          icon={<Users className="h-5 w-5" />}
-          colorClass="bg-green-50"
-          change={3}
-          changeType="increase"
-          subtext="since last month"
-        />
+        <div onClick={() => router.push('/employees')} className="cursor-pointer">
+          <StatCardModern
+            title="Total Employees"
+            value={employees && employees.length ? employees.length : 2}
+            icon={<Users className="h-5 w-5" />}
+            colorClass="bg-green-50"
+            change={3}
+            changeType="increase"
+            subtext="since last month"
+          />
+        </div>
         {/* Pending Incidents card - showing both OPEN and IN_PROGRESS */}
-        <StatCardModern
-          title="Pending Incidents"
-          value={openIncidents + inProgressIncidents}
-          icon={<Wrench className="h-5 w-5" />}
-          colorClass="bg-red-50"
-          change={-3}
-          changeType="decrease"
-          subtext="since last week"
-        />
+        <div onClick={() => router.push('/incidents')} className="cursor-pointer">
+          <StatCardModern
+            title="Pending Incidents"
+            value={openIncidents + inProgressIncidents}
+            icon={<Wrench className="h-5 w-5" />}
+            colorClass="bg-red-50"
+            change={-3}
+            changeType="decrease"
+            subtext="since last week"
+          />
+        </div>
         {/* Overtime hours card */}
-        <StatCardModern
-          title="Overtime (hrs)"
-          value={totalOvertime ? totalOvertime.toFixed(1) : '27.5'}
-          icon={<Clock className="h-5 w-5" />}
-          colorClass="bg-yellow-50"
-          change={0}
-          changeType="neutral"
-          subtext="since last month"
-        />
+        <div onClick={() => router.push('/overtime')} className="cursor-pointer">
+          <StatCardModern
+            title="Overtime (hrs)"
+            value={totalOvertime ? totalOvertime.toFixed(1) : '27.5'}
+            icon={<Clock className="h-5 w-5" />}
+            colorClass="bg-yellow-50"
+            change={0}
+            changeType="neutral"
+            subtext="since last month"
+          />
+        </div>
         {/* Materials Cost card */}
-        <StatCardModern
-          title="Materials Cost"
-          value={totalMaterials ? `₹${totalMaterials}` : '₹27500'}
-          icon={<DollarSign className="h-5 w-5" />}
-          colorClass="bg-purple-50"
-          change={8}
-          changeType="increase"
-          subtext="since last month"
-        />
+        <div onClick={() => router.push('/materials')} className="cursor-pointer">
+          <StatCardModern
+            title="Materials Cost"
+            value={totalMaterials ? `₹${totalMaterials}` : '₹27500'}
+            icon={<DollarSign className="h-5 w-5" />}
+            colorClass="bg-purple-50"
+            change={8}
+            changeType="increase"
+            subtext="since last month"
+          />
+        </div>
       </div>
       {/* Tabs for dashboard sections */}
       <Tabs defaultValue="overview" className="w-full">

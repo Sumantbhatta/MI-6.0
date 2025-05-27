@@ -19,8 +19,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-05-26T16:53:17+0530",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.42.0.v20250514-1000, environment: Java 21.0.7 (Eclipse Adoptium)"
+    date = "2025-05-27T12:16:20+0530",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.1 (Oracle Corporation)"
 )
 @Component
 public class IncidentReportMapperImpl implements IncidentReportMapper {
@@ -69,12 +69,12 @@ public class IncidentReportMapperImpl implements IncidentReportMapper {
 
         IncidentReport.IncidentReportBuilder incidentReport = IncidentReport.builder();
 
-        incidentReport.actionTaken( dto.getActionTaken() );
-        incidentReport.closedDate( dto.getClosedDate() );
-        incidentReport.estimatedCompletionDate( dto.getEstimatedCompletionDate() );
-        incidentReport.incidentDate( dto.getIncidentDate() );
-        incidentReport.incidentDetails( dto.getIncidentDetails() );
         incidentReport.incidentType( incidentTypeEnumToIncidentType( dto.getIncidentType() ) );
+        incidentReport.incidentDetails( dto.getIncidentDetails() );
+        incidentReport.incidentDate( dto.getIncidentDate() );
+        incidentReport.actionTaken( dto.getActionTaken() );
+        incidentReport.estimatedCompletionDate( dto.getEstimatedCompletionDate() );
+        incidentReport.closedDate( dto.getClosedDate() );
         incidentReport.status( statusEnumToStatus( dto.getStatus() ) );
 
         return incidentReport.build();
@@ -88,13 +88,13 @@ public class IncidentReportMapperImpl implements IncidentReportMapper {
 
         MachinaryMgmtBaseApiResponse machinaryMgmtBaseApiResponse = new MachinaryMgmtBaseApiResponse();
 
+        machinaryMgmtBaseApiResponse.setRespType( baseApiResponse.getRespType() );
+        machinaryMgmtBaseApiResponse.setMetadata( baseApiResponse.getMetadata() );
+        machinaryMgmtBaseApiResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            machinaryMgmtBaseApiResponse.messages( new ArrayList<ApiMessage>( list ) );
+            machinaryMgmtBaseApiResponse.setMessages( new ArrayList<ApiMessage>( list ) );
         }
-        machinaryMgmtBaseApiResponse.metadata( baseApiResponse.getMetadata() );
-        machinaryMgmtBaseApiResponse.respType( baseApiResponse.getRespType() );
-        machinaryMgmtBaseApiResponse.status( baseApiResponse.getStatus() );
 
         return machinaryMgmtBaseApiResponse;
     }
@@ -105,12 +105,12 @@ public class IncidentReportMapperImpl implements IncidentReportMapper {
             return;
         }
 
-        incidentReport.setActionTaken( dto.getActionTaken() );
-        incidentReport.setClosedDate( dto.getClosedDate() );
-        incidentReport.setEstimatedCompletionDate( dto.getEstimatedCompletionDate() );
-        incidentReport.setIncidentDate( dto.getIncidentDate() );
-        incidentReport.setIncidentDetails( dto.getIncidentDetails() );
         incidentReport.setIncidentType( incidentTypeEnumToIncidentType( dto.getIncidentType() ) );
+        incidentReport.setIncidentDetails( dto.getIncidentDetails() );
+        incidentReport.setIncidentDate( dto.getIncidentDate() );
+        incidentReport.setActionTaken( dto.getActionTaken() );
+        incidentReport.setEstimatedCompletionDate( dto.getEstimatedCompletionDate() );
+        incidentReport.setClosedDate( dto.getClosedDate() );
         incidentReport.setStatus( statusEnumToStatus( dto.getStatus() ) );
     }
 
@@ -122,13 +122,13 @@ public class IncidentReportMapperImpl implements IncidentReportMapper {
 
         IncidentReportResponse incidentReportResponse = new IncidentReportResponse();
 
+        incidentReportResponse.setRespType( baseApiResponse.getRespType() );
+        incidentReportResponse.setMetadata( baseApiResponse.getMetadata() );
+        incidentReportResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            incidentReportResponse.messages( new ArrayList<ApiMessage>( list ) );
+            incidentReportResponse.setMessages( new ArrayList<ApiMessage>( list ) );
         }
-        incidentReportResponse.metadata( baseApiResponse.getMetadata() );
-        incidentReportResponse.respType( baseApiResponse.getRespType() );
-        incidentReportResponse.status( baseApiResponse.getStatus() );
 
         return incidentReportResponse;
     }
@@ -139,12 +139,12 @@ public class IncidentReportMapperImpl implements IncidentReportMapper {
             return;
         }
 
-        incidentReport.setActionTaken( dto.getActionTaken() );
-        incidentReport.setClosedDate( dto.getClosedDate() );
-        incidentReport.setEstimatedCompletionDate( dto.getEstimatedCompletionDate() );
-        incidentReport.setIncidentDate( dto.getIncidentDate() );
-        incidentReport.setIncidentDetails( dto.getIncidentDetails() );
         incidentReport.setIncidentType( incidentTypeEnumToIncidentType( dto.getIncidentType() ) );
+        incidentReport.setIncidentDetails( dto.getIncidentDetails() );
+        incidentReport.setIncidentDate( dto.getIncidentDate() );
+        incidentReport.setActionTaken( dto.getActionTaken() );
+        incidentReport.setEstimatedCompletionDate( dto.getEstimatedCompletionDate() );
+        incidentReport.setClosedDate( dto.getClosedDate() );
         incidentReport.setStatus( statusEnumToStatus( dto.getStatus() ) );
     }
 
@@ -156,13 +156,13 @@ public class IncidentReportMapperImpl implements IncidentReportMapper {
 
         IncidentReportListResponse incidentReportListResponse = new IncidentReportListResponse();
 
+        incidentReportListResponse.setRespType( successApiResponse.getRespType() );
+        incidentReportListResponse.setMetadata( successApiResponse.getMetadata() );
+        incidentReportListResponse.setStatus( successApiResponse.getStatus() );
         List<ApiMessage> list = successApiResponse.getMessages();
         if ( list != null ) {
-            incidentReportListResponse.messages( new ArrayList<ApiMessage>( list ) );
+            incidentReportListResponse.setMessages( new ArrayList<ApiMessage>( list ) );
         }
-        incidentReportListResponse.metadata( successApiResponse.getMetadata() );
-        incidentReportListResponse.respType( successApiResponse.getRespType() );
-        incidentReportListResponse.status( successApiResponse.getStatus() );
 
         return incidentReportListResponse;
     }

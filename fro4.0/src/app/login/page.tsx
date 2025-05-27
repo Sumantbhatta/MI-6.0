@@ -94,13 +94,8 @@ export default function LoginPage() {
     setError('');
     
     try {
-      const roleCredentials = validCredentials[formData.role];
-      if (formData.email === roleCredentials.email && formData.password === roleCredentials.password) {
-        await login(formData.email, formData.password);
-        localStorage.setItem('userRole', formData.role);
-      } else {
-        throw new Error('Invalid credentials for selected role');
-      }
+      await login(formData.email, formData.password);
+      localStorage.setItem('userRole', formData.role);
     } catch (err: any) {
       setError(err.message || 'Invalid email or password');
     }

@@ -15,8 +15,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-05-26T16:53:18+0530",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.42.0.v20250514-1000, environment: Java 21.0.7 (Eclipse Adoptium)"
+    date = "2025-05-27T12:16:19+0530",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.1 (Oracle Corporation)"
 )
 @Component
 public class MakeMapperImpl implements MakeMapper {
@@ -70,13 +70,13 @@ public class MakeMapperImpl implements MakeMapper {
 
         MakeListResponse makeListResponse = new MakeListResponse();
 
+        makeListResponse.setRespType( baseApiResponse.getRespType() );
+        makeListResponse.setMetadata( baseApiResponse.getMetadata() );
+        makeListResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            makeListResponse.messages( new ArrayList<ApiMessage>( list ) );
+            makeListResponse.setMessages( new ArrayList<ApiMessage>( list ) );
         }
-        makeListResponse.metadata( baseApiResponse.getMetadata() );
-        makeListResponse.respType( baseApiResponse.getRespType() );
-        makeListResponse.status( baseApiResponse.getStatus() );
 
         return makeListResponse;
     }
@@ -89,13 +89,13 @@ public class MakeMapperImpl implements MakeMapper {
 
         MachinaryMgmtBaseApiResponse machinaryMgmtBaseApiResponse = new MachinaryMgmtBaseApiResponse();
 
+        machinaryMgmtBaseApiResponse.setRespType( baseApiResponse.getRespType() );
+        machinaryMgmtBaseApiResponse.setMetadata( baseApiResponse.getMetadata() );
+        machinaryMgmtBaseApiResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            machinaryMgmtBaseApiResponse.messages( new ArrayList<ApiMessage>( list ) );
+            machinaryMgmtBaseApiResponse.setMessages( new ArrayList<ApiMessage>( list ) );
         }
-        machinaryMgmtBaseApiResponse.metadata( baseApiResponse.getMetadata() );
-        machinaryMgmtBaseApiResponse.respType( baseApiResponse.getRespType() );
-        machinaryMgmtBaseApiResponse.status( baseApiResponse.getStatus() );
 
         return machinaryMgmtBaseApiResponse;
     }
@@ -108,13 +108,13 @@ public class MakeMapperImpl implements MakeMapper {
 
         MakeResponse makeResponse = new MakeResponse();
 
+        makeResponse.setRespType( baseApiResponse.getRespType() );
+        makeResponse.setMetadata( baseApiResponse.getMetadata() );
+        makeResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            makeResponse.messages( new ArrayList<ApiMessage>( list ) );
+            makeResponse.setMessages( new ArrayList<ApiMessage>( list ) );
         }
-        makeResponse.metadata( baseApiResponse.getMetadata() );
-        makeResponse.respType( baseApiResponse.getRespType() );
-        makeResponse.status( baseApiResponse.getStatus() );
 
         return makeResponse;
     }

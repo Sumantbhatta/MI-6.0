@@ -15,8 +15,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-05-26T16:53:17+0530",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.42.0.v20250514-1000, environment: Java 21.0.7 (Eclipse Adoptium)"
+    date = "2025-05-27T12:16:19+0530",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.1 (Oracle Corporation)"
 )
 @Component
 public class ItemMapperImpl implements ItemMapper {
@@ -87,13 +87,13 @@ public class ItemMapperImpl implements ItemMapper {
 
         MachinaryMgmtBaseApiResponse machinaryMgmtBaseApiResponse = new MachinaryMgmtBaseApiResponse();
 
+        machinaryMgmtBaseApiResponse.setRespType( baseApiResponse.getRespType() );
+        machinaryMgmtBaseApiResponse.setMetadata( baseApiResponse.getMetadata() );
+        machinaryMgmtBaseApiResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            machinaryMgmtBaseApiResponse.messages( new ArrayList<ApiMessage>( list ) );
+            machinaryMgmtBaseApiResponse.setMessages( new ArrayList<ApiMessage>( list ) );
         }
-        machinaryMgmtBaseApiResponse.metadata( baseApiResponse.getMetadata() );
-        machinaryMgmtBaseApiResponse.respType( baseApiResponse.getRespType() );
-        machinaryMgmtBaseApiResponse.status( baseApiResponse.getStatus() );
 
         return machinaryMgmtBaseApiResponse;
     }

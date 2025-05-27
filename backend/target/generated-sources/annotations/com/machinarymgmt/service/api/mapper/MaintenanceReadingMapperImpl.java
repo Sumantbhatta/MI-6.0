@@ -18,8 +18,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-05-26T16:53:16+0530",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.42.0.v20250514-1000, environment: Java 21.0.7 (Eclipse Adoptium)"
+    date = "2025-05-27T12:16:19+0530",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.1 (Oracle Corporation)"
 )
 @Component
 public class MaintenanceReadingMapperImpl implements MaintenanceReadingMapper {
@@ -73,32 +73,32 @@ public class MaintenanceReadingMapperImpl implements MaintenanceReadingMapper {
 
         MaintenanceReading.MaintenanceReadingBuilder maintenanceReading = MaintenanceReading.builder();
 
+        if ( dto.getOilPressure() != null ) {
+            maintenanceReading.oilPressure( BigDecimal.valueOf( dto.getOilPressure() ) );
+        }
+        if ( dto.getEngineTemperature() != null ) {
+            maintenanceReading.engineTemperature( BigDecimal.valueOf( dto.getEngineTemperature() ) );
+        }
         if ( dto.getAirPressure() != null ) {
             maintenanceReading.airPressure( BigDecimal.valueOf( dto.getAirPressure() ) );
+        }
+        if ( dto.getHydraulicTemperature() != null ) {
+            maintenanceReading.hydraulicTemperature( BigDecimal.valueOf( dto.getHydraulicTemperature() ) );
+        }
+        if ( dto.getHsdUsed() != null ) {
+            maintenanceReading.hsdUsed( BigDecimal.valueOf( dto.getHsdUsed() ) );
         }
         if ( dto.getEngineOil() != null ) {
             maintenanceReading.engineOil( BigDecimal.valueOf( dto.getEngineOil() ) );
         }
-        if ( dto.getEngineTemperature() != null ) {
-            maintenanceReading.engineTemperature( BigDecimal.valueOf( dto.getEngineTemperature() ) );
+        if ( dto.getHydraulicOil() != null ) {
+            maintenanceReading.hydraulicOil( BigDecimal.valueOf( dto.getHydraulicOil() ) );
         }
         if ( dto.getGearOil() != null ) {
             maintenanceReading.gearOil( BigDecimal.valueOf( dto.getGearOil() ) );
         }
         if ( dto.getGreaseUsed() != null ) {
             maintenanceReading.greaseUsed( BigDecimal.valueOf( dto.getGreaseUsed() ) );
-        }
-        if ( dto.getHsdUsed() != null ) {
-            maintenanceReading.hsdUsed( BigDecimal.valueOf( dto.getHsdUsed() ) );
-        }
-        if ( dto.getHydraulicOil() != null ) {
-            maintenanceReading.hydraulicOil( BigDecimal.valueOf( dto.getHydraulicOil() ) );
-        }
-        if ( dto.getHydraulicTemperature() != null ) {
-            maintenanceReading.hydraulicTemperature( BigDecimal.valueOf( dto.getHydraulicTemperature() ) );
-        }
-        if ( dto.getOilPressure() != null ) {
-            maintenanceReading.oilPressure( BigDecimal.valueOf( dto.getOilPressure() ) );
         }
 
         return maintenanceReading.build();
@@ -126,13 +126,13 @@ public class MaintenanceReadingMapperImpl implements MaintenanceReadingMapper {
 
         MachinaryMgmtBaseApiResponse machinaryMgmtBaseApiResponse = new MachinaryMgmtBaseApiResponse();
 
+        machinaryMgmtBaseApiResponse.setRespType( baseApiResponse.getRespType() );
+        machinaryMgmtBaseApiResponse.setMetadata( baseApiResponse.getMetadata() );
+        machinaryMgmtBaseApiResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            machinaryMgmtBaseApiResponse.messages( new ArrayList<ApiMessage>( list ) );
+            machinaryMgmtBaseApiResponse.setMessages( new ArrayList<ApiMessage>( list ) );
         }
-        machinaryMgmtBaseApiResponse.metadata( baseApiResponse.getMetadata() );
-        machinaryMgmtBaseApiResponse.respType( baseApiResponse.getRespType() );
-        machinaryMgmtBaseApiResponse.status( baseApiResponse.getStatus() );
 
         return machinaryMgmtBaseApiResponse;
     }
@@ -145,13 +145,13 @@ public class MaintenanceReadingMapperImpl implements MaintenanceReadingMapper {
 
         MaintenanceReadingResponse maintenanceReadingResponse = new MaintenanceReadingResponse();
 
+        maintenanceReadingResponse.setRespType( baseApiResponse.getRespType() );
+        maintenanceReadingResponse.setMetadata( baseApiResponse.getMetadata() );
+        maintenanceReadingResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            maintenanceReadingResponse.messages( new ArrayList<ApiMessage>( list ) );
+            maintenanceReadingResponse.setMessages( new ArrayList<ApiMessage>( list ) );
         }
-        maintenanceReadingResponse.metadata( baseApiResponse.getMetadata() );
-        maintenanceReadingResponse.respType( baseApiResponse.getRespType() );
-        maintenanceReadingResponse.status( baseApiResponse.getStatus() );
 
         return maintenanceReadingResponse;
     }
@@ -164,13 +164,13 @@ public class MaintenanceReadingMapperImpl implements MaintenanceReadingMapper {
 
         MaintenanceReadingListResponse maintenanceReadingListResponse = new MaintenanceReadingListResponse();
 
+        maintenanceReadingListResponse.setRespType( baseApiResponse.getRespType() );
+        maintenanceReadingListResponse.setMetadata( baseApiResponse.getMetadata() );
+        maintenanceReadingListResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            maintenanceReadingListResponse.messages( new ArrayList<ApiMessage>( list ) );
+            maintenanceReadingListResponse.setMessages( new ArrayList<ApiMessage>( list ) );
         }
-        maintenanceReadingListResponse.metadata( baseApiResponse.getMetadata() );
-        maintenanceReadingListResponse.respType( baseApiResponse.getRespType() );
-        maintenanceReadingListResponse.status( baseApiResponse.getStatus() );
 
         return maintenanceReadingListResponse;
     }
@@ -181,11 +181,35 @@ public class MaintenanceReadingMapperImpl implements MaintenanceReadingMapper {
             return;
         }
 
+        if ( dto.getOilPressure() != null ) {
+            log.setOilPressure( BigDecimal.valueOf( dto.getOilPressure() ) );
+        }
+        else {
+            log.setOilPressure( null );
+        }
+        if ( dto.getEngineTemperature() != null ) {
+            log.setEngineTemperature( BigDecimal.valueOf( dto.getEngineTemperature() ) );
+        }
+        else {
+            log.setEngineTemperature( null );
+        }
         if ( dto.getAirPressure() != null ) {
             log.setAirPressure( BigDecimal.valueOf( dto.getAirPressure() ) );
         }
         else {
             log.setAirPressure( null );
+        }
+        if ( dto.getHydraulicTemperature() != null ) {
+            log.setHydraulicTemperature( BigDecimal.valueOf( dto.getHydraulicTemperature() ) );
+        }
+        else {
+            log.setHydraulicTemperature( null );
+        }
+        if ( dto.getHsdUsed() != null ) {
+            log.setHsdUsed( BigDecimal.valueOf( dto.getHsdUsed() ) );
+        }
+        else {
+            log.setHsdUsed( null );
         }
         if ( dto.getEngineOil() != null ) {
             log.setEngineOil( BigDecimal.valueOf( dto.getEngineOil() ) );
@@ -193,11 +217,11 @@ public class MaintenanceReadingMapperImpl implements MaintenanceReadingMapper {
         else {
             log.setEngineOil( null );
         }
-        if ( dto.getEngineTemperature() != null ) {
-            log.setEngineTemperature( BigDecimal.valueOf( dto.getEngineTemperature() ) );
+        if ( dto.getHydraulicOil() != null ) {
+            log.setHydraulicOil( BigDecimal.valueOf( dto.getHydraulicOil() ) );
         }
         else {
-            log.setEngineTemperature( null );
+            log.setHydraulicOil( null );
         }
         if ( dto.getGearOil() != null ) {
             log.setGearOil( BigDecimal.valueOf( dto.getGearOil() ) );
@@ -210,30 +234,6 @@ public class MaintenanceReadingMapperImpl implements MaintenanceReadingMapper {
         }
         else {
             log.setGreaseUsed( null );
-        }
-        if ( dto.getHsdUsed() != null ) {
-            log.setHsdUsed( BigDecimal.valueOf( dto.getHsdUsed() ) );
-        }
-        else {
-            log.setHsdUsed( null );
-        }
-        if ( dto.getHydraulicOil() != null ) {
-            log.setHydraulicOil( BigDecimal.valueOf( dto.getHydraulicOil() ) );
-        }
-        else {
-            log.setHydraulicOil( null );
-        }
-        if ( dto.getHydraulicTemperature() != null ) {
-            log.setHydraulicTemperature( BigDecimal.valueOf( dto.getHydraulicTemperature() ) );
-        }
-        else {
-            log.setHydraulicTemperature( null );
-        }
-        if ( dto.getOilPressure() != null ) {
-            log.setOilPressure( BigDecimal.valueOf( dto.getOilPressure() ) );
-        }
-        else {
-            log.setOilPressure( null );
         }
     }
 

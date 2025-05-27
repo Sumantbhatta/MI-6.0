@@ -19,8 +19,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-05-26T16:53:17+0530",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.42.0.v20250514-1000, environment: Java 21.0.7 (Eclipse Adoptium)"
+    date = "2025-05-27T12:16:19+0530",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.1 (Oracle Corporation)"
 )
 @Component
 public class EmployeeMapperImpl implements EmployeeMapper {
@@ -93,13 +93,13 @@ public class EmployeeMapperImpl implements EmployeeMapper {
 
         EmployeeListResponse employeeListResponse = new EmployeeListResponse();
 
+        employeeListResponse.setRespType( baseApiResponse.getRespType() );
+        employeeListResponse.setMetadata( baseApiResponse.getMetadata() );
+        employeeListResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            employeeListResponse.messages( new ArrayList<ApiMessage>( list ) );
+            employeeListResponse.setMessages( new ArrayList<ApiMessage>( list ) );
         }
-        employeeListResponse.metadata( baseApiResponse.getMetadata() );
-        employeeListResponse.respType( baseApiResponse.getRespType() );
-        employeeListResponse.status( baseApiResponse.getStatus() );
 
         return employeeListResponse;
     }
@@ -112,13 +112,13 @@ public class EmployeeMapperImpl implements EmployeeMapper {
 
         EmployeeResponse employeeResponse = new EmployeeResponse();
 
+        employeeResponse.setRespType( baseApiResponse.getRespType() );
+        employeeResponse.setMetadata( baseApiResponse.getMetadata() );
+        employeeResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            employeeResponse.messages( new ArrayList<ApiMessage>( list ) );
+            employeeResponse.setMessages( new ArrayList<ApiMessage>( list ) );
         }
-        employeeResponse.metadata( baseApiResponse.getMetadata() );
-        employeeResponse.respType( baseApiResponse.getRespType() );
-        employeeResponse.status( baseApiResponse.getStatus() );
 
         return employeeResponse;
     }
@@ -129,15 +129,8 @@ public class EmployeeMapperImpl implements EmployeeMapper {
             return;
         }
 
-        if ( dto.getDepartment() != null ) {
-            if ( employee.getDepartment() == null ) {
-                employee.setDepartment( Department.builder().build() );
-            }
-            departmentMapper.updateEntityFromDto( dto.getDepartment(), employee.getDepartment() );
-        }
-        else {
-            employee.setDepartment( null );
-        }
+        employee.setId( dto.getId() );
+        employee.setName( dto.getName() );
         if ( dto.getDesignation() != null ) {
             if ( employee.getDesignation() == null ) {
                 employee.setDesignation( Designation.builder().build() );
@@ -147,8 +140,15 @@ public class EmployeeMapperImpl implements EmployeeMapper {
         else {
             employee.setDesignation( null );
         }
-        employee.setId( dto.getId() );
-        employee.setName( dto.getName() );
+        if ( dto.getDepartment() != null ) {
+            if ( employee.getDepartment() == null ) {
+                employee.setDepartment( Department.builder().build() );
+            }
+            departmentMapper.updateEntityFromDto( dto.getDepartment(), employee.getDepartment() );
+        }
+        else {
+            employee.setDepartment( null );
+        }
         employee.setRemarks( dto.getRemarks() );
     }
 
@@ -160,13 +160,13 @@ public class EmployeeMapperImpl implements EmployeeMapper {
 
         MachinaryMgmtBaseApiResponse machinaryMgmtBaseApiResponse = new MachinaryMgmtBaseApiResponse();
 
+        machinaryMgmtBaseApiResponse.setRespType( baseApiResponse.getRespType() );
+        machinaryMgmtBaseApiResponse.setMetadata( baseApiResponse.getMetadata() );
+        machinaryMgmtBaseApiResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            machinaryMgmtBaseApiResponse.messages( new ArrayList<ApiMessage>( list ) );
+            machinaryMgmtBaseApiResponse.setMessages( new ArrayList<ApiMessage>( list ) );
         }
-        machinaryMgmtBaseApiResponse.metadata( baseApiResponse.getMetadata() );
-        machinaryMgmtBaseApiResponse.respType( baseApiResponse.getRespType() );
-        machinaryMgmtBaseApiResponse.status( baseApiResponse.getStatus() );
 
         return machinaryMgmtBaseApiResponse;
     }
@@ -176,8 +176,8 @@ public class EmployeeMapperImpl implements EmployeeMapper {
             return;
         }
 
-        mappingTarget.setDescription( designationDto.getDescription() );
         mappingTarget.setId( designationDto.getId() );
         mappingTarget.setName( designationDto.getName() );
+        mappingTarget.setDescription( designationDto.getDescription() );
     }
 }

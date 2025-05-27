@@ -22,8 +22,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-05-26T16:53:16+0530",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.42.0.v20250514-1000, environment: Java 21.0.7 (Eclipse Adoptium)"
+    date = "2025-05-27T12:16:20+0530",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.1 (Oracle Corporation)"
 )
 @Component
 public class StockStatementMapperImpl implements StockStatementMapper {
@@ -79,6 +79,8 @@ public class StockStatementMapperImpl implements StockStatementMapper {
 
         StockStatement.StockStatementBuilder stockStatement = StockStatement.builder();
 
+        stockStatement.month( dto.getMonth() );
+        stockStatement.year( dto.getYear() );
         if ( dto.getBalance() != null ) {
             stockStatement.balance( BigDecimal.valueOf( dto.getBalance() ) );
         }
@@ -88,10 +90,8 @@ public class StockStatementMapperImpl implements StockStatementMapper {
         if ( dto.getLandedValue() != null ) {
             stockStatement.landedValue( BigDecimal.valueOf( dto.getLandedValue() ) );
         }
-        stockStatement.lastIssueOn( dto.getLastIssueOn() );
         stockStatement.lastReceiptOn( dto.getLastReceiptOn() );
-        stockStatement.month( dto.getMonth() );
-        stockStatement.year( dto.getYear() );
+        stockStatement.lastIssueOn( dto.getLastIssueOn() );
 
         return stockStatement.build();
     }
@@ -104,23 +104,23 @@ public class StockStatementMapperImpl implements StockStatementMapper {
 
         StockStatement.StockStatementBuilder stockStatement = StockStatement.builder();
 
+        stockStatement.id( dto.getId() );
+        stockStatement.project( projectSummaryDtoToProject( dto.getProject() ) );
+        stockStatement.item( itemSummaryDtoToItem( dto.getItem() ) );
+        stockStatement.equipment( equipmentSummaryDtoToEquipment( dto.getEquipment() ) );
+        stockStatement.month( dto.getMonth() );
+        stockStatement.year( dto.getYear() );
         if ( dto.getBalance() != null ) {
             stockStatement.balance( BigDecimal.valueOf( dto.getBalance() ) );
         }
-        stockStatement.equipment( equipmentSummaryDtoToEquipment( dto.getEquipment() ) );
-        stockStatement.id( dto.getId() );
-        stockStatement.item( itemSummaryDtoToItem( dto.getItem() ) );
         if ( dto.getLandedRate() != null ) {
             stockStatement.landedRate( BigDecimal.valueOf( dto.getLandedRate() ) );
         }
         if ( dto.getLandedValue() != null ) {
             stockStatement.landedValue( BigDecimal.valueOf( dto.getLandedValue() ) );
         }
-        stockStatement.lastIssueOn( dto.getLastIssueOn() );
         stockStatement.lastReceiptOn( dto.getLastReceiptOn() );
-        stockStatement.month( dto.getMonth() );
-        stockStatement.project( projectSummaryDtoToProject( dto.getProject() ) );
-        stockStatement.year( dto.getYear() );
+        stockStatement.lastIssueOn( dto.getLastIssueOn() );
 
         return stockStatement.build();
     }
@@ -131,6 +131,8 @@ public class StockStatementMapperImpl implements StockStatementMapper {
             return;
         }
 
+        stockStatement.setMonth( dto.getMonth() );
+        stockStatement.setYear( dto.getYear() );
         if ( dto.getBalance() != null ) {
             stockStatement.setBalance( BigDecimal.valueOf( dto.getBalance() ) );
         }
@@ -149,10 +151,8 @@ public class StockStatementMapperImpl implements StockStatementMapper {
         else {
             stockStatement.setLandedValue( null );
         }
-        stockStatement.setLastIssueOn( dto.getLastIssueOn() );
         stockStatement.setLastReceiptOn( dto.getLastReceiptOn() );
-        stockStatement.setMonth( dto.getMonth() );
-        stockStatement.setYear( dto.getYear() );
+        stockStatement.setLastIssueOn( dto.getLastIssueOn() );
     }
 
     @Override
@@ -163,13 +163,13 @@ public class StockStatementMapperImpl implements StockStatementMapper {
 
         StockStatementListResponse stockStatementListResponse = new StockStatementListResponse();
 
+        stockStatementListResponse.setRespType( baseApiResponse.getRespType() );
+        stockStatementListResponse.setMetadata( baseApiResponse.getMetadata() );
+        stockStatementListResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            stockStatementListResponse.messages( new ArrayList<ApiMessage>( list ) );
+            stockStatementListResponse.setMessages( new ArrayList<ApiMessage>( list ) );
         }
-        stockStatementListResponse.metadata( baseApiResponse.getMetadata() );
-        stockStatementListResponse.respType( baseApiResponse.getRespType() );
-        stockStatementListResponse.status( baseApiResponse.getStatus() );
 
         return stockStatementListResponse;
     }
@@ -182,13 +182,13 @@ public class StockStatementMapperImpl implements StockStatementMapper {
 
         StockStatementResponse stockStatementResponse = new StockStatementResponse();
 
+        stockStatementResponse.setRespType( baseApiResponse.getRespType() );
+        stockStatementResponse.setMetadata( baseApiResponse.getMetadata() );
+        stockStatementResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            stockStatementResponse.messages( new ArrayList<ApiMessage>( list ) );
+            stockStatementResponse.setMessages( new ArrayList<ApiMessage>( list ) );
         }
-        stockStatementResponse.metadata( baseApiResponse.getMetadata() );
-        stockStatementResponse.respType( baseApiResponse.getRespType() );
-        stockStatementResponse.status( baseApiResponse.getStatus() );
 
         return stockStatementResponse;
     }
@@ -201,13 +201,13 @@ public class StockStatementMapperImpl implements StockStatementMapper {
 
         MachinaryMgmtBaseApiResponse machinaryMgmtBaseApiResponse = new MachinaryMgmtBaseApiResponse();
 
+        machinaryMgmtBaseApiResponse.setRespType( baseApiResponse.getRespType() );
+        machinaryMgmtBaseApiResponse.setMetadata( baseApiResponse.getMetadata() );
+        machinaryMgmtBaseApiResponse.setStatus( baseApiResponse.getStatus() );
         List<ApiMessage> list = baseApiResponse.getMessages();
         if ( list != null ) {
-            machinaryMgmtBaseApiResponse.messages( new ArrayList<ApiMessage>( list ) );
+            machinaryMgmtBaseApiResponse.setMessages( new ArrayList<ApiMessage>( list ) );
         }
-        machinaryMgmtBaseApiResponse.metadata( baseApiResponse.getMetadata() );
-        machinaryMgmtBaseApiResponse.respType( baseApiResponse.getRespType() );
-        machinaryMgmtBaseApiResponse.status( baseApiResponse.getStatus() );
 
         return machinaryMgmtBaseApiResponse;
     }
@@ -251,32 +251,6 @@ public class StockStatementMapperImpl implements StockStatementMapper {
         return itemSummaryDto;
     }
 
-    protected Equipment equipmentSummaryDtoToEquipment(EquipmentSummaryDto equipmentSummaryDto) {
-        if ( equipmentSummaryDto == null ) {
-            return null;
-        }
-
-        Equipment.EquipmentBuilder equipment = Equipment.builder();
-
-        equipment.id( equipmentSummaryDto.getId() );
-        equipment.name( equipmentSummaryDto.getName() );
-
-        return equipment.build();
-    }
-
-    protected Item itemSummaryDtoToItem(ItemSummaryDto itemSummaryDto) {
-        if ( itemSummaryDto == null ) {
-            return null;
-        }
-
-        Item.ItemBuilder item = Item.builder();
-
-        item.code( itemSummaryDto.getCode() );
-        item.id( itemSummaryDto.getId() );
-
-        return item.build();
-    }
-
     protected Project projectSummaryDtoToProject(ProjectSummaryDto projectSummaryDto) {
         if ( projectSummaryDto == null ) {
             return null;
@@ -288,5 +262,31 @@ public class StockStatementMapperImpl implements StockStatementMapper {
         project.name( projectSummaryDto.getName() );
 
         return project.build();
+    }
+
+    protected Item itemSummaryDtoToItem(ItemSummaryDto itemSummaryDto) {
+        if ( itemSummaryDto == null ) {
+            return null;
+        }
+
+        Item.ItemBuilder item = Item.builder();
+
+        item.id( itemSummaryDto.getId() );
+        item.code( itemSummaryDto.getCode() );
+
+        return item.build();
+    }
+
+    protected Equipment equipmentSummaryDtoToEquipment(EquipmentSummaryDto equipmentSummaryDto) {
+        if ( equipmentSummaryDto == null ) {
+            return null;
+        }
+
+        Equipment.EquipmentBuilder equipment = Equipment.builder();
+
+        equipment.id( equipmentSummaryDto.getId() );
+        equipment.name( equipmentSummaryDto.getName() );
+
+        return equipment.build();
     }
 }

@@ -68,7 +68,7 @@ import jakarta.annotation.Generated;
   @JsonSubTypes.Type(value = StockStatementResponse.class, name = "StockStatementResponse")
 })
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-05-26T16:53:22.870701700+05:30[Asia/Calcutta]", comments = "Generator version: 7.13.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-05-27T12:57:30.564361800+05:30[Asia/Calcutta]", comments = "Generator version: 7.13.0")
 public class MachinaryMgmtBaseApiResponse extends BaseApiResponse {
 
   @Override

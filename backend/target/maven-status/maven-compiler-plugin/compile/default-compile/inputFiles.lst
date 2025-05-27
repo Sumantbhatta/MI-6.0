@@ -1,249 +1,249 @@
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\builder\ApiResponseBuilder.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\components\DataInitializer.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\config\AppConfig.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\config\dto\ApiMessage.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\config\dto\BaseApiResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\config\dto\ErrorType.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\config\dto\MessageType.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\config\dto\Metadata.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\config\dto\Status.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\config\OpenApiConfig.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\DepartmentRepository.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\DesignationRepository.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\EmployeeAssignmentRepository.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\EmployeeRepository.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\EquipmentCategoryRepository.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\EquipmentRepository.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\EquipmentUtilizationRepository.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\IncidentReportRepository.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\ItemRepository.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\MachineryMaintenanceLogRepository.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\MaintenancePartsUsedRepository.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\MaintenanceReadingRepository.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\MakeRepository.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\MastAnchorageDetailsRepository.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\MaterialsConsumptionTransactionRepository.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\Department.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\Designation.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\Employee.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\EmployeeAssignment.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\Equipment.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\EquipmentCategory.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\EquipmentUtilization.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\IncidentReport.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\Item.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\MachineryMaintenanceLog.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\MaintenancePartsUsed.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\MaintenanceReading.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\Make.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\MastAnchorageDetails.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\MaterialsConsumptionTransaction.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\Model.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\OvertimeReport.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\PettyCashTransaction.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\Project.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\StockStatement.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\User.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\ModelRepository.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\OvertimeReportRepository.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\PettyCashTransactionRepository.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\ProjectRepository.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\StockStatementRepository.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\UserRepository.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\DepartmentMapper.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\DesignationMapper.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\EmployeeAssignmentMapper.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\EmployeeMapper.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\EquipmentCategoryMapper.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\EquipmentMapper.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\EquipmentUtilizationMapper.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\IncidentReportMapper.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\ItemMapper.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\MachinaryMgmtMapper.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\MaintenanceLogMapper.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\MaintenancePartUsedMapper.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\MaintenanceReadingMapper.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\MakeMapper.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\MastAnchorageDetailsMapper.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\MaterialsConsumptionTransactionMapper.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\ModelMapper.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\OvertimeReportMapper.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\PettyCashTransactionMapper.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\ProjectMapper.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\StockStatementMapper.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\DepartmentService.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\DepartmentServiceImpl.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\DesignationService.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\DesignationServiceImpl.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\EmployeeAssignmentService.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\EmployeeAssignmentServiceImpl.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\EmployeeService.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\EmployeeServiceImpl.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\EquipmentCategoryService.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\EquipmentCategoryServiceImpl.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\EquipmentService.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\EquipmentServiceImpl.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\EquipmentUtilizationService.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\EquipmentUtilizationServiceImpl.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\IncidentReportService.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\IncidentReportServiceImpl.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\ItemService.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\ItemServiceImpl.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\MachineryMaintenanceLogService.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\MachineryMaintenanceLogServiceImpl.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\MaintenancePartsUsedService.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\MaintenancePartsUsedServiceImpl.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\MaintenanceReadingService.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\MaintenanceReadingServiceImpl.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\MakeService.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\MakeServiceImpl.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\MastAnchorageDetailsService.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\MastAnchorageDetailsServiceImpl.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\MaterialsConsumptionTransactionService.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\MaterialsConsumptionTransactionServiceImpl.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\ModelService.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\ModelServiceImpl.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\OvertimeReportService.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\OvertimeReportServiceImpl.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\PettyCashTransactionService.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\PettyCashTransactionServiceImpl.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\ProjectService.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\ProjectServiceImpl.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\StockStatementService.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\StockStatementServiceImpl.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\UserService.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\UserServiceImpl.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\utils\Constants.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\CategoryApiController.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\DepartmentController.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\DesignationApiController.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\EmployeeApiController.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\EmployeeAssignmentApiController.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\EquipmentApiController.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\EquipmentController.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\EquipmentUtilizationApiController.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\IncidentApiController.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\ItemsApiController.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\MaintenanceController.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\MaintenancePartUsedController.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\MaintenanceReadingsController.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\MakeApiController.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\MastAnchorageDetailsApiController.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\MaterialsConsumptionTransactionApiController.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\ModelApiController.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\OvertimeReportApiController.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\PettyCashTransactionApiController.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\ProjectApiController.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\StockStatementApiController.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\UserController.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\src\main\java\com\machinarymgmt\service\MachinaryMgmtApplication.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\ApiUtil.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\CategoriesApi.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\DepartmentsApi.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\DesignationsApi.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\EmployeesApi.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\EmployeesAssignmentApi.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\EquipmentsApi.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\EquipmentsUtilizationApi.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\IncidentsApi.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\ItemsApi.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\MaintenanceApi.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\MaintenancePartUsedApi.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\MaintenanceReadingApi.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\MakesApi.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\MastAnchorageApi.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\MaterialsConsumptionApi.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\ModelsApi.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\OvertimeReportApi.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\PettyCashApi.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\ProjectsApi.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\StockStatementApi.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\CategorySummaryDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\DepartmentDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\DepartmentListResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\DepartmentRequestDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\DepartmentResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\DesignationDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\DesignationListResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\DesignationRequestDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\DesignationResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EmployeeAssignmentDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EmployeeAssignmentListResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EmployeeAssignmentRequestDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EmployeeAssignmentResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EmployeeDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EmployeeListResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EmployeeRequestDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EmployeeResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EmployeeSummaryDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EquipmentCategoryDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EquipmentCategoryListResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EquipmentCategoryRequestDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EquipmentCategoryResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EquipmentDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EquipmentListResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EquipmentRequestDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EquipmentResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EquipmentSummaryDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EquipmentUtilizationDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EquipmentUtilizationListResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EquipmentUtilizationRequestDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EquipmentUtilizationResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\IncidentReportDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\IncidentReportListResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\IncidentReportRequestDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\IncidentReportResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ItemDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ItemListResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ItemRequestDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ItemResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ItemSummaryDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MachinaryMgmtBaseApiResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaintenanceLogDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaintenanceLogListResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaintenanceLogRequestDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaintenanceLogResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaintenanceLogSummaryDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaintenancePartUsedDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaintenancePartUsedListResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaintenancePartUsedRequestDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaintenancePartUsedResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaintenanceReadingDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaintenanceReadingListResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaintenanceReadingRequestDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaintenanceReadingResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MakeDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MakeListResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MakeRequestDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MakeResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MakeSummaryDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MastAnchorageDetailsDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MastAnchorageDetailsListResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MastAnchorageDetailsRequestDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MastAnchorageDetailsResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaterialsConsumptionTransactionDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaterialsConsumptionTransactionListResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaterialsConsumptionTransactionRequest.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaterialsConsumptionTransactionResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ModelDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ModelListResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ModelRequestDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ModelResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ModelSummaryDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\OvertimeReportDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\OvertimeReportListResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\OvertimeReportRequestDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\OvertimeReportResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\PettyCashTransactionDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\PettyCashTransactionListResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\PettyCashTransactionRequestDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\PettyCashTransactionResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ProjectDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ProjectListResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ProjectRequestDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ProjectResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ProjectSummaryDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\StockStatementDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\StockStatementListResponse.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\StockStatementRequestDto.java
-C:\Users\Dell\OneDrive\Desktop\new altproj\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\StockStatementResponse.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\builder\ApiResponseBuilder.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\components\DataInitializer.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\config\AppConfig.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\config\dto\ApiMessage.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\config\dto\BaseApiResponse.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\config\dto\ErrorType.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\config\dto\MessageType.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\config\dto\Metadata.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\config\dto\Status.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\config\OpenApiConfig.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\DepartmentRepository.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\DesignationRepository.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\EmployeeAssignmentRepository.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\EmployeeRepository.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\EquipmentCategoryRepository.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\EquipmentRepository.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\EquipmentUtilizationRepository.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\IncidentReportRepository.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\ItemRepository.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\MachineryMaintenanceLogRepository.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\MaintenancePartsUsedRepository.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\MaintenanceReadingRepository.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\MakeRepository.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\MastAnchorageDetailsRepository.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\MaterialsConsumptionTransactionRepository.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\Department.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\Designation.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\Employee.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\EmployeeAssignment.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\Equipment.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\EquipmentCategory.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\EquipmentUtilization.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\IncidentReport.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\Item.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\MachineryMaintenanceLog.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\MaintenancePartsUsed.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\MaintenanceReading.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\Make.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\MastAnchorageDetails.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\MaterialsConsumptionTransaction.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\Model.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\OvertimeReport.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\PettyCashTransaction.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\Project.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\StockStatement.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\model\User.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\ModelRepository.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\OvertimeReportRepository.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\PettyCashTransactionRepository.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\ProjectRepository.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\StockStatementRepository.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\data\UserRepository.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\DepartmentMapper.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\DesignationMapper.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\EmployeeAssignmentMapper.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\EmployeeMapper.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\EquipmentCategoryMapper.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\EquipmentMapper.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\EquipmentUtilizationMapper.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\IncidentReportMapper.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\ItemMapper.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\MachinaryMgmtMapper.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\MaintenanceLogMapper.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\MaintenancePartUsedMapper.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\MaintenanceReadingMapper.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\MakeMapper.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\MastAnchorageDetailsMapper.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\MaterialsConsumptionTransactionMapper.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\ModelMapper.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\OvertimeReportMapper.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\PettyCashTransactionMapper.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\ProjectMapper.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\mapper\StockStatementMapper.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\DepartmentService.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\DepartmentServiceImpl.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\DesignationService.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\DesignationServiceImpl.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\EmployeeAssignmentService.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\EmployeeAssignmentServiceImpl.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\EmployeeService.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\EmployeeServiceImpl.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\EquipmentCategoryService.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\EquipmentCategoryServiceImpl.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\EquipmentService.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\EquipmentServiceImpl.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\EquipmentUtilizationService.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\EquipmentUtilizationServiceImpl.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\IncidentReportService.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\IncidentReportServiceImpl.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\ItemService.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\ItemServiceImpl.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\MachineryMaintenanceLogService.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\MachineryMaintenanceLogServiceImpl.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\MaintenancePartsUsedService.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\MaintenancePartsUsedServiceImpl.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\MaintenanceReadingService.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\MaintenanceReadingServiceImpl.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\MakeService.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\MakeServiceImpl.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\MastAnchorageDetailsService.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\MastAnchorageDetailsServiceImpl.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\MaterialsConsumptionTransactionService.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\MaterialsConsumptionTransactionServiceImpl.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\ModelService.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\ModelServiceImpl.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\OvertimeReportService.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\OvertimeReportServiceImpl.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\PettyCashTransactionService.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\PettyCashTransactionServiceImpl.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\ProjectService.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\ProjectServiceImpl.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\StockStatementService.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\StockStatementServiceImpl.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\UserService.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\service\UserServiceImpl.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\utils\Constants.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\CategoryApiController.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\DepartmentController.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\DesignationApiController.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\EmployeeApiController.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\EmployeeAssignmentApiController.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\EquipmentApiController.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\EquipmentController.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\EquipmentUtilizationApiController.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\IncidentApiController.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\ItemsApiController.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\MaintenanceController.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\MaintenancePartUsedController.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\MaintenanceReadingsController.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\MakeApiController.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\MastAnchorageDetailsApiController.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\MaterialsConsumptionTransactionApiController.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\ModelApiController.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\OvertimeReportApiController.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\PettyCashTransactionApiController.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\ProjectApiController.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\StockStatementApiController.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\api\v1\UserController.java
+D:\internship\MI-6.0\backend\src\main\java\com\machinarymgmt\service\MachinaryMgmtApplication.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\ApiUtil.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\CategoriesApi.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\DepartmentsApi.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\DesignationsApi.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\EmployeesApi.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\EmployeesAssignmentApi.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\EquipmentsApi.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\EquipmentsUtilizationApi.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\IncidentsApi.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\ItemsApi.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\MaintenanceApi.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\MaintenancePartUsedApi.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\MaintenanceReadingApi.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\MakesApi.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\MastAnchorageApi.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\MaterialsConsumptionApi.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\ModelsApi.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\OvertimeReportApi.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\PettyCashApi.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\ProjectsApi.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\api\StockStatementApi.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\CategorySummaryDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\DepartmentDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\DepartmentListResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\DepartmentRequestDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\DepartmentResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\DesignationDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\DesignationListResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\DesignationRequestDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\DesignationResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EmployeeAssignmentDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EmployeeAssignmentListResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EmployeeAssignmentRequestDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EmployeeAssignmentResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EmployeeDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EmployeeListResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EmployeeRequestDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EmployeeResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EmployeeSummaryDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EquipmentCategoryDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EquipmentCategoryListResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EquipmentCategoryRequestDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EquipmentCategoryResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EquipmentDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EquipmentListResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EquipmentRequestDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EquipmentResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EquipmentSummaryDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EquipmentUtilizationDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EquipmentUtilizationListResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EquipmentUtilizationRequestDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\EquipmentUtilizationResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\IncidentReportDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\IncidentReportListResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\IncidentReportRequestDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\IncidentReportResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ItemDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ItemListResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ItemRequestDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ItemResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ItemSummaryDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MachinaryMgmtBaseApiResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaintenanceLogDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaintenanceLogListResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaintenanceLogRequestDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaintenanceLogResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaintenanceLogSummaryDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaintenancePartUsedDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaintenancePartUsedListResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaintenancePartUsedRequestDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaintenancePartUsedResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaintenanceReadingDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaintenanceReadingListResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaintenanceReadingRequestDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaintenanceReadingResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MakeDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MakeListResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MakeRequestDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MakeResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MakeSummaryDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MastAnchorageDetailsDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MastAnchorageDetailsListResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MastAnchorageDetailsRequestDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MastAnchorageDetailsResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaterialsConsumptionTransactionDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaterialsConsumptionTransactionListResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaterialsConsumptionTransactionRequest.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\MaterialsConsumptionTransactionResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ModelDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ModelListResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ModelRequestDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ModelResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ModelSummaryDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\OvertimeReportDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\OvertimeReportListResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\OvertimeReportRequestDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\OvertimeReportResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\PettyCashTransactionDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\PettyCashTransactionListResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\PettyCashTransactionRequestDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\PettyCashTransactionResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ProjectDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ProjectListResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ProjectRequestDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ProjectResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\ProjectSummaryDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\StockStatementDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\StockStatementListResponse.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\StockStatementRequestDto.java
+D:\internship\MI-6.0\backend\target\generated-sources\openapi\src\main\java\com\machinarymgmt\service\dto\StockStatementResponse.java
