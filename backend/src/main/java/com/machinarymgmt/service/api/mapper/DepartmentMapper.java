@@ -20,7 +20,7 @@ import java.util.List;
     componentModel = "spring",
     unmappedTargetPolicy = ReportingPolicy.IGNORE
 )
-public interface DepartmentMapper extends MachinaryMgmtMapper {
+public interface DepartmentMapper {
 
     DepartmentDto toDto(Department department);
 

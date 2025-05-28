@@ -7,6 +7,9 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useAuth } from '@/contexts/AuthContext';
+import { emailService } from '@/services/emailService';
+import { toast } from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 interface UserProfile {
   name: string;
@@ -15,10 +18,12 @@ interface UserProfile {
   avatar: string;
   phone: string;
   department: string;
+  email_confirmed_at?: string | null;
 }
 
 export default function ProfilePage() {
   const { user: authUser } = useAuth();
+  const router = useRouter();
   
   // Initialize with default values that will be overridden
   const [user, setUser] = useState<UserProfile>({
@@ -32,6 +37,10 @@ export default function ProfilePage() {
 
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState<UserProfile>(user);
+  const [isVerified, setIsVerified] = useState(false);
+  const [otp, setOtp] = useState('');
+  const [showOtpInput, setShowOtpInput] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Load user profile from localStorage on component mount
   useEffect(() => {
@@ -65,6 +74,13 @@ export default function ProfilePage() {
     setFormData(user);
   }, [user, isEditing]);
 
+  useEffect(() => {
+    // Check if user is verified
+    if (user?.email_confirmed_at) {
+      setIsVerified(true);
+    }
+  }, [user]);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -81,6 +97,41 @@ export default function ProfilePage() {
     localStorage.setItem('userProfile', JSON.stringify(formData));
     setIsEditing(false);
   };
+
+  const handleSendOTP = async () => {
+    if (!user?.email) return;
+    
+    setIsLoading(true);
+    const { success, error } = await emailService.sendOTP(user.email);
+    setIsLoading(false);
+
+    if (success) {
+      setShowOtpInput(true);
+      toast.success('OTP sent to your email!');
+    } else {
+      toast.error(error || 'Failed to send OTP');
+    }
+  };
+
+  const handleVerifyOTP = async () => {
+    if (!user?.email || !otp) return;
+
+    setIsLoading(true);
+    const { success, error } = await emailService.verifyOTP(user.email, otp);
+    setIsLoading(false);
+
+    if (success) {
+      setIsVerified(true);
+      toast.success('Email verified successfully!');
+      router.push('/dashboard');
+    } else {
+      toast.error(error || 'Invalid OTP');
+    }
+  };
+
+  if (!user) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="container mx-auto py-10 bg-gradient-to-br from-blue-400 to-indigo-500">
@@ -176,6 +227,53 @@ export default function ProfilePage() {
           </Card>
         </div>
       </div>
+
+      {!isVerified && (
+        <div className="mt-6">
+          <Card>
+            <CardHeader>
+              <CardTitle>Email Verification</CardTitle>
+              <CardDescription>
+                Please verify your email to access the dashboard
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              {!showOtpInput ? (
+                <Button 
+                  onClick={handleSendOTP} 
+                  disabled={isLoading}
+                >
+                  {isLoading ? 'Sending...' : 'Send Verification OTP'}
+                </Button>
+              ) : (
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <Label>Enter OTP</Label>
+                    <Input
+                      type="text"
+                      value={otp}
+                      onChange={(e) => setOtp(e.target.value)}
+                      placeholder="Enter the OTP sent to your email"
+                    />
+                  </div>
+                  <Button 
+                    onClick={handleVerifyOTP}
+                    disabled={isLoading || !otp}
+                  >
+                    {isLoading ? 'Verifying...' : 'Verify OTP'}
+                  </Button>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        </div>
+      )}
+
+      {isVerified && (
+        <div className="mt-6 text-green-600">
+          Email verified successfully!
+        </div>
+      )}
     </div>
   );
 }

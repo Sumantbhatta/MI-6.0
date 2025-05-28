@@ -12,6 +12,8 @@ import { Toaster } from 'react-hot-toast';
 import { AuthProvider } from '@/contexts/AuthContext';
 import { usePathname, useSelectedLayoutSegments } from 'next/navigation';
 import { SettingsProvider } from '@/contexts/SettingsContext';
+import { useEffect } from 'react';
+import { initializePerformanceOptimizations } from '@/utils/performanceOptimizer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -39,11 +41,7 @@ function LayoutWrapper({ children }: { children: React.ReactNode }) {
   
   // Pages that should not have sidebar and navbar
   if (isAuthPage || isHomePage || isErrorPage || is404Page) {
-    return (
-      <main className="w-full min-h-screen">
-        {children}
-      </main>
-    );
+    return <>{children}</>;
   }
   
   // All other pages will have sidebar and navbar
@@ -65,14 +63,22 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  useEffect(() => {
+    initializePerformanceOptimizations();
+  }, []);
+
   return (
     <html lang="en">
       <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Anton&family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap" rel="stylesheet" />
       </head>
-      <body className={inter.className} style={{ margin: 0, padding: 0 }}>
+      <body className={inter.className}>
         <QueryClientProvider client={queryClient}>
           <ThemeProvider theme={theme}>
             <CssBaseline />

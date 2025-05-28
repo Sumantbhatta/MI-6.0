@@ -317,9 +317,8 @@ function DashboardContent() {
       {/* Get user from supabase auth */}
       {(() => {
         const { user } = require('@/contexts/AuthContext').useAuth();
-        // Prefer user.name, fallback to email, then 'User'
-        const userName = user?.user_metadata?.username || user?.user_metadata?.name || user?.email || 'User';
-        return <DashboardGreeting userName={userName} date={new Date()} />;
+        // Use user.name directly since it's already set in AuthContext
+        return <DashboardGreeting userName={user?.name || 'User'} date={new Date()} />;
       })()}
       {/* Header Stats */}
       {/* Debug values */}
@@ -485,9 +484,9 @@ function DashboardContent() {
                         const { month, 'Heavy Equipment': heavy, 'Light Equipment': light, 'Vehicles': vehicles } = item;
                         return {
                           month,
-                          'Heavy Equipment': Math.round(heavy || 0),
-                          'Light Equipment': Math.round(light || 0),
-                          'Vehicles': Math.round(vehicles || 0)
+                          'Heavy Equipment': Math.round(Number(heavy) || 0),
+                          'Light Equipment': Math.round(Number(light) || 0),
+                          'Vehicles': Math.round(Number(vehicles) || 0)
                         };
                       });
                     })()}

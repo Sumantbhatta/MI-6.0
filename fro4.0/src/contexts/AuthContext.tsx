@@ -3,86 +3,77 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
+import { User, Session } from '@supabase/supabase-js';
 
-type User = {
+interface AuthUser {
   id: string;
   name: string;
   email: string;
   avatar: string;
-} | null;
+  email_confirmed_at?: string | null;
+}
 
-type AuthContextType = {
-  user: User;
+interface AuthContextType {
+  user: AuthUser | null;
+  loading: boolean;
   login: (email: string, password: string) => Promise<void>;
   register: (name: string, email: string, password: string) => Promise<void>;
-  logout: () => void;
-  loading: boolean;
+  logout: () => Promise<void>;
   signInWithGoogle: () => Promise<void>;
-};
+}
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User>(null);
+  const [user, setUser] = useState<AuthUser | null>(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
   const pathname = usePathname();
 
   useEffect(() => {
-    // Check for existing session
-    const checkSession = async () => {
-      try {
-        const { data: { session }, error } = await supabase.auth.getSession();
-        if (error) throw error;
-        
-        if (session?.user) {
-          const { data: profile } = await supabase
-            .from('profiles')
-            .select('*')
-            .eq('id', session.user.id)
-            .single();
-            
-          setUser({
-            id: session.user.id,
-            name: profile?.name || session.user.email?.split('@')[0] || 'User',
-            email: session.user.email || '',
-            avatar: profile?.avatar || `https://ui-avatars.com/api/?name=${encodeURIComponent(profile?.name || 'User')}`
-          });
-        }
-      } catch (error) {
-        console.error('Error checking session:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    checkSession();
-
-    // Set up auth state change listener
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+    // Check active sessions and sets the user
+    supabase.auth.getSession().then(({ data: { session } }) => {
       if (session?.user) {
-        const { data: profile } = await supabase
-          .from('profiles')
-          .select('*')
-          .eq('id', session.user.id)
-          .single();
-          
         setUser({
           id: session.user.id,
-          name: profile?.name || session.user.email?.split('@')[0] || 'User',
+          name: session.user.user_metadata?.name || session.user.email?.split('@')[0] || 'User',
           email: session.user.email || '',
-          avatar: profile?.avatar || `https://ui-avatars.com/api/?name=${encodeURIComponent(profile?.name || 'User')}`
+          avatar: session.user.user_metadata?.avatar || `https://ui-avatars.com/api/?name=${encodeURIComponent(session.user.user_metadata?.name || 'User')}`,
+          email_confirmed_at: session.user.email_confirmed_at
         });
       } else {
         setUser(null);
       }
       setLoading(false);
+
+      // If user is not verified, redirect to profile page
+      if (session?.user && !session.user.email_confirmed_at) {
+        router.push('/profile');
+      }
     });
 
-    return () => {
-      subscription.unsubscribe();
-    };
-  }, []);
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
+      if (session?.user) {
+        setUser({
+          id: session.user.id,
+          name: session.user.user_metadata?.name || session.user.email?.split('@')[0] || 'User',
+          email: session.user.email || '',
+          avatar: session.user.user_metadata?.avatar || `https://ui-avatars.com/api/?name=${encodeURIComponent(session.user.user_metadata?.name || 'User')}`,
+          email_confirmed_at: session.user.email_confirmed_at
+        });
+      } else {
+        setUser(null);
+      }
+      setLoading(false);
+
+      // If user is not verified, redirect to profile page
+      if (session?.user && !session.user.email_confirmed_at) {
+        router.push('/profile');
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  }, [router]);
 
   useEffect(() => {
     // Redirect unauthenticated users to login page
@@ -96,109 +87,59 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [user, loading, pathname, router]);
 
   const login = async (email: string, password: string) => {
-    setLoading(true);
-    try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password
-      });
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
 
-      if (error) throw error;
+    if (error) throw error;
 
-      if (data.user) {
-        const { data: profile } = await supabase
-          .from('profiles')
-          .select('*')
-          .eq('id', data.user.id)
-          .single();
-
-        setUser({
-          id: data.user.id,
-          name: profile?.name || data.user.email?.split('@')[0] || 'User',
-          email: data.user.email || '',
-          avatar: profile?.avatar || `https://ui-avatars.com/api/?name=${encodeURIComponent(profile?.name || 'User')}`
-        });
-
-        router.push('/dashboard');
-      }
-    } catch (error: any) {
-      console.error('Login failed:', error);
-      throw new Error(error.message || 'Failed to sign in');
-    } finally {
-      setLoading(false);
+    // If user is not verified, redirect to profile page
+    if (data.user && !data.user.email_confirmed_at) {
+      router.push('/profile');
+    } else {
+      router.push('/dashboard');
     }
   };
 
   const register = async (name: string, email: string, password: string) => {
-    try {
-      const { data, error: signUpError } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          data: {
-            name,
-            avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}`
-          }
-        }
-      });
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: {
+          name,
+        },
+      },
+    });
 
-      if (signUpError) throw signUpError;
-      if (!data.user) throw new Error('Registration failed. Please try again.');
+    if (error) throw error;
 
-      setUser({
-        id: data.user.id,
-        name,
-        email,
-        avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}`
-      });
-
-      router.push('/dashboard');
-      return data.user;
-    } catch (error: any) {
-      console.error('Registration failed:', error);
-      throw error;
-    }
+    // Redirect to profile page for email verification
+    router.push('/profile');
   };
 
   const logout = async () => {
-    try {
-      const { error } = await supabase.auth.signOut();
-      if (error) throw error;
-      
-      setUser(null);
-      router.push('/');
-    } catch (error) {
-      console.error('Logout failed:', error);
-    }
+    const { error } = await supabase.auth.signOut();
+    if (error) throw error;
+    router.push('/login');
   };
 
   const signInWithGoogle = async () => {
-    try {
-      const { data, error } = await supabase.auth.signInWithOAuth({
-        provider: 'google',
-        options: {
-          redirectTo: `${window.location.origin}/auth/callback`
-        }
-      });
-
-      if (error) throw error;
-
-      // The user data will be handled by the auth state change listener
-      // and the user will be redirected to the dashboard
-    } catch (error) {
-      console.error('Google sign in failed:', error);
-      throw error;
-    }
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+    });
+    if (error) throw error;
   };
 
   return (
-    <AuthContext.Provider value={{ 
-      user, 
-      login, 
-      register, 
-      logout, 
+    <AuthContext.Provider value={{
+      user,
       loading,
-      signInWithGoogle 
+      login,
+      register,
+      logout,
+      signInWithGoogle,
     }}>
       {children}
     </AuthContext.Provider>
