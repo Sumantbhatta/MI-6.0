@@ -6,18 +6,18 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
-import { useAuth } from '@/contexts/AuthContext';
-import { Loader2, Lock, Mail, User, AlertCircle } from 'lucide-react';
+import { registerUser } from '@/services/authService';
+import { Loader2, Lock, Mail, User, AlertCircle, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function RegisterPage() {
-  const { register } = useAuth();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    phone: '',
   });
   const [error, setError] = useState('');
   
@@ -94,7 +94,12 @@ export default function RegisterPage() {
     }
     
     try {
-      await register(formData.name, formData.email, formData.password);
+      await registerUser({
+      username: formData.name,
+      email: formData.email,
+      password: formData.password
+    });
+
     } catch (err: any) {
       console.error('Registration error:', err);
       setError(err.message || 'Failed to create account. Please try again.');
@@ -227,6 +232,24 @@ export default function RegisterPage() {
                       type="password"
                       required
                       value={formData.confirmPassword}
+                      onChange={handleChange}
+                      className="pl-10 bg-white/60 border-gray-300 focus:border-orange-500 focus:ring-orange-500 transition-all duration-200"
+                    />
+                  </div>
+                </motion.div>
+                
+                <motion.div className="space-y-2" variants={itemVariants}>
+                  <Label htmlFor="phone" className="text-gray-700 font-medium">Phone Number (Optional)</Label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <Phone className="h-5 w-5 text-gray-400" />
+                    </div>
+                    <Input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      placeholder="+91 1234567890"
+                      value={formData.phone}
                       onChange={handleChange}
                       className="pl-10 bg-white/60 border-gray-300 focus:border-orange-500 focus:ring-orange-500 transition-all duration-200"
                     />

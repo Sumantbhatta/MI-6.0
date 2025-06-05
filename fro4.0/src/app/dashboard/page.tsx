@@ -30,6 +30,9 @@ import pettyCashService from '@/services/pettyCashService';
 import materialsConsumptionService from '@/services/materialsConsumptionService';
 import { Users, Briefcase, Wrench, Clock, DollarSign, Truck } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+import { getUserRoleFromToken } from '@/hooks/useRole'; // 👈 use the hook
+
 
 // Update type definitions
 interface MonthlyData {
@@ -63,8 +66,17 @@ interface Equipment {
   [key: string]: any;
 }
 
+
 export default function Home() {
-  // The layout already provides header/sidebar
+  const router = useRouter();
+
+  useEffect(() => {
+    const role = getUserRoleFromToken();
+    if (role !== 'admin') {
+      router.push('/unauthorized'); // create this page
+    }
+  }, []);
+
   return <DashboardContent />;
 }
 

@@ -2,9 +2,12 @@ package com.machinarymgmt.service.api.components;
 
 import com.machinarymgmt.service.api.data.*;
 import com.machinarymgmt.service.api.data.model.*;
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,6 +15,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.List;
 
 @Component
 @RequiredArgsConstructor
@@ -1439,28 +1443,31 @@ public class DataInitializer implements CommandLineRunner {
                 .build();
         stockStatementRepository.saveAll(Arrays.asList(statement1, statement2, statement3, statement4, statement5, statement6));
     }
+    @Autowired
+    private UserRepository userRepository;
 
-    // private void initializeUsers() {
-    //     log.info("Initializing Users...");
-    //     User user1 = User.builder()
-    //             .username("admin")
-    //             .password("$2a$10$dXJ3SW6G7P50lGmMkkmwe.20cQQubK3.HZWzG3YB1tlRy.fqvM/BG") // password: password
-    //             .email("admin@example.com")
-    //             .role("ADMIN")
-    //             .active(true)
-    //             .build();
+    @PostConstruct
+    public void initUsers() {
+        if (userRepository.findAll().isEmpty()) {
+            User admin = User.builder()
+                    .email("admin@example.com")
+                    .username("admin")
+                    .password(new BCryptPasswordEncoder().encode("admin123"))
+                    .role("admin")
+                    .active(true)
+                    .build();
 
-    //     User user2 = User.builder()
-    //             .username("user")
-    //             .password("$2a$10$dXJ3SW6G7P50lGmMkkmwe.20cQQubK3.HZWzG3YB1tlRy.fqvM/BG") // password: password
-    //             .email("user@example.com")
-    //             .role("USER")
-    //             .active(true)
-    //             .build();
+            User employee = User.builder()
+                    .email("employee@example.com")
+                    .username("emp")
+                    .password(new   BCryptPasswordEncoder().encode("emp123"))
+                    .role("employee")
+                    .active(true)
+                    .build();
 
-    //     userRepository.saveAll(Arrays.asList(user1, user2));
-    // }
-}
+            userRepository.saveAll(List.of(admin, employee));
+        }
+    }}
 
 
 

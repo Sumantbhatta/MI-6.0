@@ -8,24 +8,26 @@ export const api = axios.create({
   },
 });
 
-// Add request interceptor to handle errors
+// ✅ Add token to each request if available
 api.interceptors.request.use(
-  (config) => {
-    return config;
-  },
-  (error) => {
-    console.error('API Request Error:', error);
-    return Promise.reject(error);
-  }
+    (config) => {
+      const token = localStorage.getItem('token'); // 🔐 your JWT
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
+      return config;
+    },
+    (error) => {
+      console.error('API Request Error:', error);
+      return Promise.reject(error);
+    }
 );
 
-// Add response interceptor to handle errors
+// Response error logging (keep this as is)
 api.interceptors.response.use(
-  (response) => {
-    return response;
-  },
-  (error) => {
-    console.error('API Response Error:', error.response?.data || error.message);
-    return Promise.reject(error);
-  }
+    (response) => response,
+    (error) => {
+      console.error('API Response Error:', error.response?.data || error.message);
+      return Promise.reject(error);
+    }
 );
